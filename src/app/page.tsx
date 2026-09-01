@@ -1,9 +1,15 @@
 import Image from "next/image";
-
+import Link from "next/link";
 import Gradient from "@/components/Gradient";
+import AnimatedWave from "@/components/AnimatedWave";
+
+import { getAllProjects } from "@/lib/projects";
 
 export default function Home() {
   const contact = "[EMAIL_ADDRESS]";
+  const projects = getAllProjects();
+  const lastProjects = projects.slice(0, 2);
+
   return (
     <main className="flex flex-1 w-full mx-auto flex-col items-center bg-[var(--white)] sm:items-start">
       <div className="gradient h-[75vh] w-full relative overflow-hidden">
@@ -22,43 +28,19 @@ export default function Home() {
           ))}
         </div>
 
-        {/* 3. La vague SVG par-dessus (dégradé transparent -> #FFF8F8) */}
-        <div className="transition absolute bottom-0 left-0 w-full h-1/2 lg:h-3/4 pointer-events-none">
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 1440 600"
-            preserveAspectRatio="none"
-            style={{ overflow: "visible" }}
-          >
-            <defs>
-              <linearGradient
-                id="waveGrad"
-                gradientUnits="userSpaceOnUse"
-                x1="0"
-                y1="120"
-                x2="0"
-                y2="600"
-              >
-                <stop offset="0%" stopColor="#FFF8F8" stopOpacity="0" />
-                <stop offset="100%" stopColor="#FFF8F8" stopOpacity="1" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M -100 1000 L -100 120 C 139 38 246 59 400 120 C 625 209 750 430 950 410 C 1150 390 1212 292 1292 285 C 1372 279 1427 295 1540 350 L 1540 1000 Z"
-              fill="url(#waveGrad)"
-              style={{ filter: "blur(30px)" }}
-            />
-          </svg>
-        </div>
+        {/* 3. La vague SVG animée par-dessus (dégradé transparent -> #FFF8F8) */}
+        <AnimatedWave />
       </div>
       <section>
         <div className="myself col-span-3 lg:col-span-2 flex flex-col self-end">
-          <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold">ALEX XIAO</h1>
+          <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black">
+            ALEX XIAO
+          </h1>
           <span className="text-[clamp(1rem,2vw,1.5rem)] -mt-2 lg:-mt-4">
             Web Design & Développeur Web
           </span>
         </div>
-        <div className="description col-span-3 lg:col-span-2 lg:self-end font-medium text-base lg:text-lg">
+        <div className="description col-span-3 lg:col-span-2 lg:self-end font-light text-base lg:text-lg">
           <span className="block">
             Développeur front-end et web designer en Belgique, j’aime concevoir
             des interfaces soignées, vivantes et agréables à utiliser.
@@ -70,18 +52,18 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 grid-rows-[auto_1fr] gap-x-8 gap-y-2 col-span-4">
           <div className="location grid row-span-2 grid-rows-subgrid gap-y-0">
-            <span>Situé à</span>
+            <span className="font-light">Situé à</span>
             <p className="font-medium">Bruxelles</p>
           </div>
           <div className="languages grid row-span-2 grid-rows-subgrid gap-y-0">
-            <span>Langues</span>
+            <span className="font-light">Langues</span>
             <div className="flex flex-col">
               <p className="font-medium">Français (FR)</p>
               <p className="font-medium">Anglais (EN)</p>
             </div>
           </div>
           <div className="menu grid row-span-2 grid-rows-subgrid gap-y-0">
-            <span>Menu</span>
+            <span className="font-light">Menu</span>
             <ul>
               <li className="font-medium text-xl">
                 <a href="#projects">Projets</a>
@@ -105,12 +87,42 @@ export default function Home() {
 
       <section id="projects">
         <h2>Projets</h2>
-        <div>{/* Boucle pour afficher 2 derniers projets */}</div>
+        <div className="grid grid-cols-4 gap-x-8 gap-y-2 col-span-4">
+          {/* Boucle pour afficher 2 derniers projets */}
+          {lastProjects.map((project) => (
+            <article
+              key={project.slug}
+              className="col-span-2 flex flex-col gap-4"
+            >
+              <div className="relative overflow-hidden aspect-video w-full">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1000}
+                  height={1000}
+                  className="h-full w-full object-cover"
+                />
+                <div className="overlay absolute inset-0 w-full h-full z-5 bg-(--accent) opacity-0 text-(--white) flex flex-col justify-center items-center">
+                  <Gradient />
+                </div>
+                <Link
+                  href={`projects/${project.slug}`}
+                  className="en-savoir-plus text-xl lg:text-2xl w-fit h-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-(--white) opacity-0 blur-xl"
+                >
+                  En savoir plus
+                </Link>
+              </div>
+              <h4 className="text-xl lg:text-2xl w-fit h-fit font-medium">
+                {project.title}
+              </h4>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section id="about">
         <h2>À propos</h2>
-        <div className="formations col-span-2 gap-8">
+        <div className="formations col-span-2 gap-6 flex flex-col">
           <h3>Formations</h3>
           <div className="flex flex-col gap-4">
             <div>
@@ -128,7 +140,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="stacks col-span-2 gap-8">
+        <div className="stacks col-span-2 gap-6 flex flex-col">
           <h3>Outils & Technologies</h3>
           <div className="grid grid-cols-8 gap-4">
             {/* Images des outils */}
@@ -137,7 +149,7 @@ export default function Home() {
       </section>
 
       <section id="contact">
-        <h2>Me contacter ?</h2>
+        <h2>Me contacter</h2>
         <div className="col-span-2">
           <p>Je suis à la recherche constante de projets.</p>
           <p>Si vous êtes partant, n’hésitez pas à me contacter !</p>
