@@ -11,7 +11,7 @@ export default function Home() {
   const lastProjects = projects.slice(0, 2);
 
   return (
-    <main className="flex flex-1 w-full mx-auto flex-col items-center bg-[var(--white)] sm:items-start">
+    <main className="flex flex-1 w-full mx-auto flex-col items-center bg-(--white) sm:items-start">
       <div className="gradient h-[75vh] w-full relative overflow-hidden">
         {/* 1. L'arrière-plan avec dégradé et texture grainée */}
         <Gradient />
@@ -21,9 +21,9 @@ export default function Home() {
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className={`h-full bg-gradient-to-r from-white to-black ${
-                i >= 6 ? "hidden md:block" : ""
-              }`}
+              className={`h-full bg-linear-to-r from-white to-black
+                ${i >= 6 ? "hidden md:block" : ""
+                }`}
             />
           ))}
         </div>

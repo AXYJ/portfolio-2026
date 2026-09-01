@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Portfolio 2026 — Alex Xiao
 
-## Getting Started
+> Portfolio personnel et vitrine de projets d'Alex Xiao — Développeur Web & Web Designer basé à Bruxelles.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Aperçu
+
+Ce portfolio a été conçu pour présenter mes créations, compétences et expériences à travers une interface soignée, vivante et interactive. 
+
+### Points forts :
+- 🎨 **Design & Identité visuelle** : Gradients dynamiques, filtres de grain SVG, vagues animées et typographie personnalisée (*Switzer*).
+- ⚡ **Performances & Modernité** : Développé avec Next.js 16 (App Router), React 19 et Tailwind CSS v4.
+- 📂 **Contenu modulaire (MDX)** : Architecture orientée contenu permettant d'ajouter et mettre à jour des projets facilement via des fichiers Markdown avec frontmatter (`gray-matter`).
+- 🌊 **Micro-interactions & Animations** : Transitions au survol, animations keyframes SVG GPU-accélérées et animations de vagues via Framer Motion.
+
+---
+
+## 🛠️ Stack Technique
+
+| Domaine | Technologies |
+| :--- | :--- |
+| **Framework Web** | [Next.js](https://nextjs.org/) 16 (App Router) |
+| **Bibliothèque UI** | [React](https://react.dev/) 19 & TypeScript |
+| **Styles & Design** | [Tailwind CSS](https://tailwindcss.com/) v4 & CSS Modules / Custom Properties |
+| **Animations** | [Framer Motion](https://www.framer.com/motion/) & CSS Keyframes |
+| **Gestion du contenu** | [gray-matter](https://github.com/jonschlinkert/gray-matter) (Parsing MDX) |
+| **Typographie** | Switzer (Fontes locales woff2) & Geist |
+| **Qualité de code** | ESLint & Prettier (avec plugin Tailwind CSS) |
+
+---
+
+## 📁 Structure du Projet
+
+```text
+portfolio/
+├── content/
+│   └── projects/           # Fichiers MDX des projets (métadonnées & contenu)
+│       ├── museek.mdx
+│       └── rituels.mdx
+├── public/
+│   ├── fonts/              # Polices locales (Switzer)
+│   ├── img/                # Images des projets et aperçus
+│   └── stacks/             # Icônes et logos des technologies
+├── src/
+│   ├── app/
+│   │   ├── globals.css     # Styles globaux, variables CSS et Tailwind
+│   │   ├── layout.tsx      # Layout racine Next.js (métadonnées & typographies)
+│   │   └── page.tsx        # Page d'accueil principale
+│   ├── components/
+│   │   ├── AnimatedWave.tsx# Animation de vague SVG (Framer Motion)
+│   │   ├── Gradient.tsx    # Arrière-plan animé avec dégradés fluides
+│   │   └── Grain.tsx       # Filtre SVG de bruit/grain
+│   └── lib/
+│       └── projects.ts     # Fonctions utilitaires de lecture et tri des projets MDX
+├── next.config.ts          # Configuration Next.js
+├── package.json            # Dépendances et scripts
+└── tsconfig.json           # Configuration TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Démarrage Rapide
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prérequis
+- [Node.js](https://nodejs.org/) (version 18+ recommandée)
+- [npm](https://www.npmjs.com/) (ou pnpm / yarn / bun)
 
-## Learn More
+### 1. Cloner le dépôt et installer les dépendances
+```bash
+git clone <URL_DU_DEPOT>
+cd portfolio
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Lancer le serveur de développement
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+L'application sera accessible sur [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📝 Ajouter un Nouveau Projet
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Les projets sont gérés dans le dossier `content/projects/`. Pour ajouter une nouvelle réalisation, créez un fichier `.mdx` (ex: `content/projects/mon-projet.mdx`) avec la structure suivante :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```markdown
+---
+title: "Nom du Projet"
+description: "Courte description du projet et des objectifs"
+date: "01-09-2026"
+tags: ["UI/UX", "Next.js", "Tailwind CSS", "TypeScript"]
+image: "/img/mon-projet.png"
+---
+
+## Contexte du projet
+
+Détails, défis techniques et solutions apportées...
+```
+
+Les projets sont automatiquement parsés par [`projects.ts`](file:///c:/Users/alexx/Documents/projets/portfolio/src/lib/projects.ts) et triés par date décroissante sur le portfolio.
+
+---
+
+## 📜 Scripts Disponibles
+
+| Commande | Description |
+| :--- | :--- |
+| `npm run dev` | Lance le serveur de développement local avec hot-reload. |
+| `npm run build` | Compile l'application pour la production. |
+| `npm run start` | Démarre le serveur en mode production (après un build). |
+| `npm run lint` | Analyse le code avec ESLint pour détecter les erreurs. |
+| `npm run format` | Formate l'ensemble des fichiers sources avec Prettier. |
+
+---
+
+## 📬 Contact & Réseaux
+
+- **Auteur** : Alex Xiao
+- **Rôle** : Web Design & Développeur Web Front-End
+- **Localisation** : Bruxelles, Belgique
+- **Email** : `contact@alex-xiao.com` *(ou via le formulaire du portfolio)*
+
+---
+
+*© 2026 Alex Xiao — Tous droits réservés.*
+
