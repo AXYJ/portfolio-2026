@@ -43,16 +43,6 @@ export default function Home() {
             Web Design & Développeur Web
           </span>
         </FadeIn>
-        {/* <div className="description col-span-3 lg:col-span-2 lg:self-end text-base lg:text-lg">
-          <span className="block">
-            Développeur front-end et web designer en Belgique, j’aime concevoir
-            des interfaces soignées, vivantes et agréables à utiliser.
-          </span>
-          <span className="block">
-            Diplômé récemment, je recherche une équipe avec laquelle collaborer
-            sur des projets concrets et continuer à monter en compétences.
-          </span>
-        </div> */}
         <FadeInStagger className="grid grid-cols-2 lg:grid-cols-4 grid-rows-[auto_1fr] gap-x-8 gap-y-2 col-span-4">
           <FadeIn className="location grid row-span-2 grid-rows-subgrid gap-y-0">
             <span className="font-light">Situé à</span>
@@ -154,14 +144,6 @@ export default function Home() {
               </Link>
             </FadeIn>
           ))}
-          {/* <div className="col-span-full flex justify-center pt-4">
-            <Link
-              href="/projects"
-              className="text-lg lg:text-xl font-medium underline underline-offset-4 hover:opacity-75 transition-opacity"
-            >
-              Voir tous les projets →
-            </Link>
-          </div> */}
         </FadeInStagger>
       </section>
 
@@ -214,7 +196,7 @@ export default function Home() {
           <FadeIn className="col-span-3">
             <p>
               Un projet en tête, une opportunité au sein de votre équipe ou
-              simplement envie d'échanger ? Écrivez-moi !
+              simplement envie d&apos;échanger ? Écrivez-moi !
             </p>
           </FadeIn>
           <FadeIn className="col-span-2">
@@ -228,7 +210,7 @@ export default function Home() {
         </FadeInStagger>
       </section>
 
-      <footer className="grid grid-cols-1 mt-8 lg:grid-cols-5 gap-x-4 lg:gap-x-8 gap-y-2 lg:gap-y-16 w-full -mt-8 p-8 lg:p-16 mx-auto max-w-7xl">
+      <footer className="grid grid-cols-1 mt-8 lg:grid-cols-5 gap-x-4 lg:gap-x-8 gap-y-2 lg:gap-y-16 w-full p-8 lg:p-16 mx-auto max-w-7xl">
         <span className="lg:col-span-2">
           © 2026 Alex XiaoTous droits réservés
         </span>

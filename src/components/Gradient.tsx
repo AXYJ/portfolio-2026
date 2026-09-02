@@ -79,21 +79,21 @@ export default function Gradient({ children, className = "" }: GradientProps) {
         .animate-ellipse-1 {
           transform-box: fill-box;
           transform-origin: center;
-          animation: drift-1 12s ease-in-out infinite;
+          animation: drift-1 5s ease-in-out infinite;
           will-change: transform;
         }
 
         .animate-ellipse-2 {
           transform-box: fill-box;
           transform-origin: center;
-          animation: drift-2 7s ease-in-out infinite;
+          animation: drift-2 3s ease-in-out infinite;
           will-change: transform;
         }
 
         .animate-ellipse-3 {
           transform-box: fill-box;
           transform-origin: center;
-          animation: drift-3 15s ease-in-out infinite;
+          animation: drift-3 8s ease-in-out infinite;
           will-change: transform;
         }
       `}</style>
