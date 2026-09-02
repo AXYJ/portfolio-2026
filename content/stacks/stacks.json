@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Photoshop",
+        "image": "/stacks/photoshop.svg"
+    },
+    {
+        "name": "Illustrator",
+        "image": "/stacks/illustrator.svg"
+    },
+    {
+        "name": "After Effects",
+        "image": "/stacks/after-effects.svg"
+    },
+    {
+        "name": "Figma",
+        "image": "/stacks/figma.svg"
+    },
+    {
+        "name": "Wordpress",
+        "image": "/stacks/wordpress.svg"
+    },
+    {
+        "name": "Tailwind",
+        "image": "/stacks/tailwind.svg"
+    },
+    {
+        "name": "React",
+        "image": "/stacks/react.svg"
+    },
+    {
+        "name": "Next.js",
+        "image": "/stacks/nextjs.svg"
+    },
+    {
+        "name": "GSAP",
+        "image": "/stacks/gsap.svg"
+    },
+    {
+        "name": "Framer Motion",
+        "image": "/stacks/framer-motion.svg"
+    }
+]

@@ -35,7 +35,7 @@ export default function AnimatedWave() {
             y2="600"
           >
             <stop offset="0%" stopColor="#FFF8F8" stopOpacity="0" />
-            <stop offset="100%" stopColor="#FFF8F8" stopOpacity="1" />
+            <stop offset="90%" stopColor="#FFF8F8" stopOpacity="1" />
           </linearGradient>
         </defs>
         <motion.path
