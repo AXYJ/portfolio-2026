@@ -203,6 +203,7 @@ export default function Home() {
             <a
               className="text-lg lg:text-3xl font-semibold"
               href={`mailto:${emailUser}@${emailDomain}`}
+              target="_blank"
             >
               {emailUser} [at] {emailDomain}
             </a>
@@ -210,15 +211,16 @@ export default function Home() {
         </FadeInStagger>
       </section>
 
-      <footer className="grid grid-cols-1 mt-8 lg:grid-cols-5 gap-x-4 lg:gap-x-8 gap-y-2 lg:gap-y-16 w-full p-8 lg:p-16 mx-auto max-w-7xl">
+      <footer className="grid grid-cols-1 mt-8 lg:grid-cols-6 gap-x-4 lg:gap-x-8 gap-y-2 lg:gap-y-16 w-full p-8 lg:p-16 mx-auto max-w-7xl">
         <span className="lg:col-span-2">
-          © 2026 Alex XiaoTous droits réservés
+          © 2026 Alex Xiao — Tous droits réservés
         </span>
-        <span className="lg:text-center">
+        <span className="lg:text-center col-span-1 lg:col-span-2">
           <a
             href="https://github.com/AXYJ"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:underline underline-offset-4"
           >
             Github
           </a>{" "}
@@ -227,9 +229,17 @@ export default function Home() {
             href="https://www.linkedin.com/in/alex-xiao-12a2bb35b"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:underline underline-offset-4"
           >
             Linkedin
-          </a>
+          </a>{" "}
+          |{" "}
+          <Link
+            href="/mentions-legales"
+            className="hover:underline underline-offset-4"
+          >
+            Mentions légales
+          </Link>
         </span>
         <span className="lg:col-span-2 lg:text-end">
           Design & Développement par Alex Xiao
