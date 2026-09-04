@@ -13,6 +13,7 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 - ⚡ **Performances & Modernité** : Développé avec Next.js 16 (App Router), React 19 et Tailwind CSS v4.
 - 📂 **Contenu modulaire (MDX)** : Architecture orientée contenu permettant d'ajouter et mettre à jour des projets facilement via des fichiers Markdown avec frontmatter (`gray-matter`).
 - 🌊 **Micro-interactions & Animations** : Transitions au survol, animations keyframes SVG GPU-accélérées et animations de vagues via Framer Motion.
+- ⚖️ **Mentions Légales & Confidentialité** : Page dédiée (`/mentions-legales`) détaillant l'hébergement, la propriété intellectuelle et une politique sans cookies tiers ni traceurs (conforme RGPD).
 
 ---
 
@@ -22,11 +23,19 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 | :--- | :--- |
 | **Framework Web** | [Next.js](https://nextjs.org/) 16 (App Router) |
 | **Bibliothèque UI** | [React](https://react.dev/) 19 & TypeScript |
-| **Styles & Design** | [Tailwind CSS](https://tailwindcss.com/) v4 & CSS Modules / Custom Properties |
+| **Styles & Design** | [Tailwind CSS](https://tailwindcss.com/) v4 & CSS Custom Properties |
 | **Animations** | [Framer Motion](https://www.framer.com/motion/) & CSS Keyframes |
 | **Gestion du contenu** | [gray-matter](https://github.com/jonschlinkert/gray-matter) (Parsing MDX) |
+| **Icônes** | [Lucide React](https://lucide.dev/) |
 | **Typographie** | Switzer (Fontes locales woff2) & Geist |
 | **Qualité de code** | ESLint & Prettier (avec plugin Tailwind CSS) |
+
+---
+
+## 🗺️ Pages & Routes
+
+- `/` — **Accueil** : Hero banner animé, présentation, vitrine des réalisations (MDX), stacks techniques et section contact.
+- `/mentions-legales` — **Mentions Légales & Confidentialité** : Informations sur l'éditeur, hébergeur (Hostinger), droits d'auteur et respect de la vie privée (RGPD).
 
 ---
 
@@ -35,22 +44,29 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 ```text
 portfolio/
 ├── content/
-│   └── projects/           # Fichiers MDX des projets (métadonnées & contenu)
-│       ├── museek.mdx
-│       └── rituels.mdx
+│   ├── projects/           # Fichiers MDX des projets (métadonnées & contenu)
+│   │   ├── museek.mdx
+│   │   └── rituels.mdx
+│   └── stacks/             # Données JSON des technologies
+│       └── stacks.json
 ├── public/
 │   ├── fonts/              # Polices locales (Switzer)
 │   ├── img/                # Images des projets et aperçus
 │   └── stacks/             # Icônes et logos des technologies
 ├── src/
 │   ├── app/
-│   │   ├── globals.css     # Styles globaux, variables CSS et Tailwind
+│   │   ├── favicon.svg     # Favicon vectoriel du site
+│   │   ├── globals.css     # Styles globaux, variables CSS et Tailwind v4
 │   │   ├── layout.tsx      # Layout racine Next.js (métadonnées & typographies)
+│   │   ├── mentions-legales/
+│   │   │   └── page.tsx    # Page des mentions légales & confidentialité
 │   │   └── page.tsx        # Page d'accueil principale
 │   ├── components/
 │   │   ├── AnimatedWave.tsx# Animation de vague SVG (Framer Motion)
+│   │   ├── FadeIn.tsx      # Composant d'apparition fluide au scroll
 │   │   ├── Gradient.tsx    # Arrière-plan animé avec dégradés fluides
-│   │   └── Grain.tsx       # Filtre SVG de bruit/grain
+│   │   ├── Grain.tsx       # Filtre SVG de bruit/grain
+│   │   └── HeroBanner.tsx  # Bannière interactive d'en-tête
 │   └── lib/
 │       └── projects.ts     # Fonctions utilitaires de lecture et tri des projets MDX
 ├── next.config.ts          # Configuration Next.js
@@ -121,7 +137,9 @@ Les projets sont automatiquement parsés par [`projects.ts`](file:///c:/Users/al
 - **Auteur** : Alex Xiao
 - **Rôle** : Web Design & Développeur Web Front-End
 - **Localisation** : Bruxelles, Belgique
-- **Email** : `contact@alex-xiao.com` *(ou via le formulaire du portfolio)*
+- **Email** : `contact@xiao-web.com`
+- **GitHub** : [AXYJ](https://github.com/AXYJ)
+- **LinkedIn** : [Alex Xiao](https://www.linkedin.com/in/alex-xiao-12a2bb35b)
 
 ---
 
