@@ -108,7 +108,7 @@ title: "Nom du Projet"
 description: "Courte description du projet et des objectifs"
 date: "01-09-2026"
 tags: ["UI/UX", "Next.js", "Tailwind CSS", "TypeScript"]
-image: "/img/mon-projet.png"
+image: "/img/mon-projet.webp"
 ---
 
 ## Contexte du projet
