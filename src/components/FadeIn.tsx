@@ -2,8 +2,9 @@
 
 import { motion, HTMLMotionProps, Variants } from "framer-motion";
 import React, { createContext, useContext } from "react";
+import type { JSX } from "react/jsx-runtime";
 
-const FadeInStaggerContext = createContext(false);
+const FadeInStaggerContext: React.Context<boolean> = createContext(false);
 
 interface FadeInStaggerProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
@@ -21,7 +22,7 @@ export function FadeInStagger({
   viewport,
   variants,
   ...props
-}: FadeInStaggerProps) {
+}: FadeInStaggerProps): JSX.Element {
   const containerVariants: Variants = variants ?? {
     hidden: {},
     visible: {
@@ -67,8 +68,8 @@ export default function FadeIn({
   viewport,
   variants,
   ...props
-}: FadeInProps) {
-  const isInStaggerGroup = useContext(FadeInStaggerContext);
+}: FadeInProps): JSX.Element {
+  const isInStaggerGroup: boolean = useContext(FadeInStaggerContext);
 
   if (isInStaggerGroup) {
     const childVariants: Variants = variants ?? {

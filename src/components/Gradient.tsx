@@ -1,12 +1,16 @@
 import React from "react";
 import Grain from "@/components/Grain";
+import type { JSX } from "react/jsx-runtime";
 
 interface GradientProps {
   children?: React.ReactNode;
   className?: string;
 }
 
-export default function Gradient({ children, className = "" }: GradientProps) {
+export default function Gradient({
+  children,
+  className = "",
+}: GradientProps): JSX.Element {
   return (
     <div
       className={`absolute inset-0 w-full h-full overflow-hidden pointer-events-none ${className}`}

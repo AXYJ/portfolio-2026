@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import React from "react";
+import type { JSX } from "react/jsx-runtime";
 
 interface HeroBannerProps {
   children: React.ReactNode;
 }
 
-export default function HeroBanner({ children }: HeroBannerProps) {
+export default function HeroBanner({ children }: HeroBannerProps): JSX.Element {
   return (
     <motion.div
       initial={{ opacity: 0 }}

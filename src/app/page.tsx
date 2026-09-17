@@ -5,14 +5,17 @@ import AnimatedWave from "@/components/AnimatedWave";
 import HeroBanner from "@/components/HeroBanner";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
 import { ArrowRight } from "lucide-react";
+import type { JSX } from "react/jsx-runtime";
 
-import { getAllProjects } from "@/lib/projects";
+import type { project } from "@/lib/projects";
+import { projects } from "@/lib/projects";
 
-export default function Home() {
-  const emailUser = "contact";
-  const emailDomain = "xiao-web.com";
-  const projects = getAllProjects();
-  const lastProjects = projects.slice(0, 2);
+export default function Home(): JSX.Element {
+  const emailUser: string = "contact";
+  const emailDomain: string = "xiao-web.com";
+  const lastProjects: project[] = projects
+    .filter((project: project) => project.highlighted)
+    .sort((a: project, b: project) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <main className="flex flex-1 w-full mx-auto flex-col items-center bg-(--white) sm:items-start">
@@ -104,7 +107,7 @@ export default function Home() {
         <h2>Projets</h2>
         <FadeInStagger className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-16 col-span-4">
           {/* Boucle pour afficher 2 derniers projets */}
-          {lastProjects.map((project) => (
+          {lastProjects.map((project: project) => (
             <FadeIn
               key={project.slug}
               className="col-span-2 grid grid-cols-subgrid gap-y-4"

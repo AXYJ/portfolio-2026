@@ -1,5 +1,7 @@
 "use client";
 
+import type { JSX } from "react/jsx-runtime";
+
 export default function Grain({
   id = "grain",
   baseFrequency = ".5",
@@ -8,7 +10,7 @@ export default function Grain({
   id?: string;
   baseFrequency?: string | number;
   scale?: string | number;
-}) {
+}): JSX.Element {
   return (
     <svg
       className="pointer-events-none fixed top-0 left-0"

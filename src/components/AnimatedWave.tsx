@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { JSX } from "react/jsx-runtime";
 
 // Différentes étapes de la vague créant une onde fluide qui se propage
-const waveKeyframes = [
+const waveKeyframes: string[] = [
   // Étape 1 : Position de base
   "M -100 1000 L -100 120 C 139 38 246 59 400 120 C 625 209 750 430 950 410 C 1150 390 1212 292 1292 285 C 1372 279 1427 295 1540 350 L 1540 1000 Z",
   // Étape 2 : L'onde avance et se déforme vers la droite
@@ -16,7 +17,7 @@ const waveKeyframes = [
   "M -100 1000 L -100 120 C 139 38 246 59 400 120 C 625 209 750 430 950 410 C 1150 390 1212 292 1292 285 C 1372 279 1427 295 1540 350 L 1540 1000 Z",
 ];
 
-export default function AnimatedWave() {
+export default function AnimatedWave(): JSX.Element {
   return (
     <div className="transition absolute bottom-0 left-0 w-full h-1/2 lg:h-3/4 pointer-events-none">
       <svg

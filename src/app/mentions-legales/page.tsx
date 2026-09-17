@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import type { JSX } from "react/jsx-runtime";
 
 export const metadata: Metadata = {
   title: "Mentions Légales & Confidentialité | Alex Xiao",
@@ -8,9 +9,9 @@ export const metadata: Metadata = {
     "Mentions légales et politique de confidentialité du portfolio d'Alex Xiao.",
 };
 
-export default function MentionsLegales() {
-  const emailUser = "contact";
-  const emailDomain = "xiao-web.com";
+export default function MentionsLegales(): JSX.Element {
+  const emailUser: string = "contact";
+  const emailDomain: string = "xiao-web.com";
 
   return (
     <main className="flex flex-1 w-full mx-auto flex-col items-center bg-(--white) min-h-screen">
