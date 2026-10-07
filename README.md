@@ -12,7 +12,7 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 - 🎨 **Design & Identité visuelle** : Gradients dynamiques, filtres de grain SVG, vagues animées et typographie personnalisée (*Switzer*).
 - ⚡ **Performances & Modernité** : Développé avec Next.js 16 (App Router), React 19 et Tailwind CSS v4.
 - 📂 **Contenu centralisé** : Les projets sont déclarés dans un seul fichier typé (`src/lib/projects.ts`).
-- 🌊 **Micro-interactions & Animations** : Transitions au survol, animations keyframes SVG GPU-accélérées et animations de vagues via Framer Motion.
+- 🌊 **Micro-interactions & Animations** : Transitions au survol, animations CSS natives (keyframes, transitions) et apparition au scroll via `IntersectionObserver`.
 - ⚖️ **Mentions Légales & Confidentialité** : Page dédiée (`/mentions-legales`) détaillant l'hébergement, la propriété intellectuelle et une politique sans cookies tiers ni traceurs (conforme RGPD).
 
 ---
@@ -24,7 +24,7 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 | **Framework Web** | [Next.js](https://nextjs.org/) 16 (App Router) |
 | **Bibliothèque UI** | [React](https://react.dev/) 19 & TypeScript |
 | **Styles & Design** | [Tailwind CSS](https://tailwindcss.com/) v4 & CSS Custom Properties |
-| **Animations** | [Framer Motion](https://www.framer.com/motion/) & CSS Keyframes |
+| **Animations** | CSS (transitions, keyframes) & `IntersectionObserver` |
 | **Icônes** | [Lucide React](https://lucide.dev/) |
 | **Typographie** | Switzer (Fontes locales woff2) & Geist |
 | **Qualité de code** | ESLint & Prettier (avec plugin Tailwind CSS) |
@@ -46,18 +46,18 @@ portfolio/
 │   └── img/                # Images des projets et aperçus
 ├── src/
 │   ├── app/
-│   │   ├── favicon.svg     # Favicon vectoriel du site
+│   │   ├── icon.svg        # Favicon vectoriel du site
 │   │   ├── globals.css     # Styles globaux, variables CSS et Tailwind v4
 │   │   ├── layout.tsx      # Layout racine Next.js (métadonnées & typographies)
 │   │   ├── mentions-legales/
 │   │   │   └── page.tsx    # Page des mentions légales & confidentialité
 │   │   └── page.tsx        # Page d'accueil principale
 │   ├── components/
-│   │   ├── AnimatedWave.tsx# Animation de vague SVG (Framer Motion)
+│   │   ├── AnimatedWave.tsx# Vague SVG en bas de la bannière
 │   │   ├── FadeIn.tsx      # Composant d'apparition fluide au scroll
 │   │   ├── Gradient.tsx    # Arrière-plan animé avec dégradés fluides
 │   │   ├── Grain.tsx       # Filtre SVG de bruit/grain
-│   │   └── HeroBanner.tsx  # Bannière interactive d'en-tête
+│   │   └── Reveal.tsx      # Déclenche les animations d'apparition au scroll
 │   └── lib/
 │       └── projects.ts     # Liste typée des projets
 ├── next.config.ts          # Configuration Next.js

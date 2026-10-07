@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Gradient from "@/components/Gradient";
 import AnimatedWave from "@/components/AnimatedWave";
-import HeroBanner from "@/components/HeroBanner";
+import Reveal from "@/components/Reveal";
 import EmailLink from "@/components/EmailLink";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
 import { ArrowRight } from "lucide-react";
@@ -59,7 +59,8 @@ export default function Home(): JSX.Element {
 
   return (
     <main className="mx-auto flex w-full flex-1 flex-col items-center bg-(--white) sm:items-start">
-      <HeroBanner>
+      <Reveal />
+      <div className="relative h-[65vh] w-full animate-fade-in overflow-hidden lg:h-[40vh]">
         {/* 1. L'arrière-plan avec dégradé et texture grainée */}
         <Gradient />
 
@@ -75,7 +76,7 @@ export default function Home(): JSX.Element {
 
         {/* 3. La vague SVG animée par-dessus (dégradé transparent -> #FFF8F8) */}
         <AnimatedWave />
-      </HeroBanner>
+      </div>
       <section>
         <FadeIn className="col-span-3 flex flex-col self-end lg:col-span-2">
           <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black">

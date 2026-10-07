@@ -47,6 +47,22 @@
 
 @theme {
   --font-sans: "Switzer", sans-serif;
+  --animate-fade-in: fade-in 0.5s ease-in-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+[data-fade] {
+  @apply translate-y-5 opacity-0 transition-[opacity,translate] duration-800 ease-[cubic-bezier(.16,1,.3,1)];
+}
+
+[data-visible] [data-fade],
+[data-fade][data-visible] {
+  @apply translate-y-0 opacity-100;
 }
 
 section {
