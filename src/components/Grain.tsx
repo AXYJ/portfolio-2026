@@ -1,16 +1,6 @@
-"use client";
-
 import type { JSX } from "react/jsx-runtime";
 
-export default function Grain({
-  id = "grain",
-  baseFrequency = ".5",
-  scale = ".2",
-}: {
-  id?: string;
-  baseFrequency?: string | number;
-  scale?: string | number;
-}): JSX.Element {
+export default function Grain(): JSX.Element {
   return (
     <svg
       className="pointer-events-none fixed top-0 left-0"
@@ -19,20 +9,14 @@ export default function Grain({
       aria-hidden="true"
     >
       <filter
-        id={id}
+        id="grain"
         colorInterpolationFilters="sRGB"
         primitiveUnits="objectBoundingBox"
       >
-        {/* Génération du bruit : baseFrequency contrôle la finesse du grain */}
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency={baseFrequency}
-          numOctaves="4"
-        />
-        {/* Déplacement/déformation des pixels par le bruit */}
+        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" />
         <feDisplacementMap
           in="SourceGraphic"
-          scale={scale}
+          scale="0.2"
           xChannelSelector="R"
         />
         <feBlend in2="SourceGraphic" />

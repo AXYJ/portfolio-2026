@@ -11,7 +11,7 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 ### Points forts :
 - 🎨 **Design & Identité visuelle** : Gradients dynamiques, filtres de grain SVG, vagues animées et typographie personnalisée (*Switzer*).
 - ⚡ **Performances & Modernité** : Développé avec Next.js 16 (App Router), React 19 et Tailwind CSS v4.
-- 📂 **Contenu modulaire (MDX)** : Architecture orientée contenu permettant d'ajouter et mettre à jour des projets facilement via des fichiers Markdown avec frontmatter (`gray-matter`).
+- 📂 **Contenu centralisé** : Les projets sont déclarés dans un seul fichier typé (`src/lib/projects.ts`).
 - 🌊 **Micro-interactions & Animations** : Transitions au survol, animations keyframes SVG GPU-accélérées et animations de vagues via Framer Motion.
 - ⚖️ **Mentions Légales & Confidentialité** : Page dédiée (`/mentions-legales`) détaillant l'hébergement, la propriété intellectuelle et une politique sans cookies tiers ni traceurs (conforme RGPD).
 
@@ -25,7 +25,6 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 | **Bibliothèque UI** | [React](https://react.dev/) 19 & TypeScript |
 | **Styles & Design** | [Tailwind CSS](https://tailwindcss.com/) v4 & CSS Custom Properties |
 | **Animations** | [Framer Motion](https://www.framer.com/motion/) & CSS Keyframes |
-| **Gestion du contenu** | [gray-matter](https://github.com/jonschlinkert/gray-matter) (Parsing MDX) |
 | **Icônes** | [Lucide React](https://lucide.dev/) |
 | **Typographie** | Switzer (Fontes locales woff2) & Geist |
 | **Qualité de code** | ESLint & Prettier (avec plugin Tailwind CSS) |
@@ -34,7 +33,7 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 
 ## 🗺️ Pages & Routes
 
-- `/` — **Accueil** : Hero banner animé, présentation, vitrine des réalisations (MDX), stacks techniques et section contact.
+- `/` — **Accueil** : Hero banner animé, présentation, vitrine des réalisations et section contact.
 - `/mentions-legales` — **Mentions Légales & Confidentialité** : Informations sur l'éditeur, hébergeur (Hostinger), droits d'auteur et respect de la vie privée (RGPD).
 
 ---
@@ -43,16 +42,8 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 
 ```text
 portfolio/
-├── content/
-│   ├── projects/           # Fichiers MDX des projets (métadonnées & contenu)
-│   │   ├── museek.mdx
-│   │   └── rituels.mdx
-│   └── stacks/             # Données JSON des technologies
-│       └── stacks.json
 ├── public/
-│   ├── fonts/              # Polices locales (Switzer)
-│   ├── img/                # Images des projets et aperçus
-│   └── stacks/             # Icônes et logos des technologies
+│   └── img/                # Images des projets et aperçus
 ├── src/
 │   ├── app/
 │   │   ├── favicon.svg     # Favicon vectoriel du site
@@ -68,7 +59,7 @@ portfolio/
 │   │   ├── Grain.tsx       # Filtre SVG de bruit/grain
 │   │   └── HeroBanner.tsx  # Bannière interactive d'en-tête
 │   └── lib/
-│       └── projects.ts     # Fonctions utilitaires de lecture et tri des projets MDX
+│       └── projects.ts     # Liste typée des projets
 ├── next.config.ts          # Configuration Next.js
 ├── package.json            # Dépendances et scripts
 └── tsconfig.json           # Configuration TypeScript
@@ -100,23 +91,7 @@ L'application sera accessible sur [http://localhost:3000](http://localhost:3000)
 
 ## 📝 Ajouter un Nouveau Projet
 
-Les projets sont gérés dans le dossier `content/projects/`. Pour ajouter une nouvelle réalisation, créez un fichier `.mdx` (ex: `content/projects/mon-projet.mdx`) avec la structure suivante :
-
-```markdown
----
-title: "Nom du Projet"
-description: "Courte description du projet et des objectifs"
-date: "01-09-2026"
-tags: ["UI/UX", "Next.js", "Tailwind CSS", "TypeScript"]
-image: "/img/mon-projet.webp"
----
-
-## Contexte du projet
-
-Détails, défis techniques et solutions apportées...
-```
-
-Les projets sont automatiquement parsés par [`projects.ts`](file:///c:/Users/alexx/Documents/projets/portfolio/src/lib/projects.ts) et triés par date décroissante sur le portfolio.
+Ajoutez un objet au tableau `projects` dans [`src/lib/projects.ts`](src/lib/projects.ts) (titre, description, date, tags, `image`, `url`, `highlighted`) et déposez l'image dans `public/img/`. Les projets mis en avant sont triés par date décroissante sur l'accueil.
 
 ---
 

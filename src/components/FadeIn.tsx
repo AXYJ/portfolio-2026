@@ -1,47 +1,42 @@
 "use client";
 
-import { motion, HTMLMotionProps, Variants } from "framer-motion";
-import React, { createContext, useContext } from "react";
+import { motion, Variants } from "framer-motion";
+import { createContext, useContext, ReactNode } from "react";
 import type { JSX } from "react/jsx-runtime";
 
-const FadeInStaggerContext: React.Context<boolean> = createContext(false);
+const FadeInStaggerContext = createContext(false);
 
-interface FadeInStaggerProps extends HTMLMotionProps<"div"> {
-  children: React.ReactNode;
-  staggerDelay?: number;
-  initialDelay?: number;
-  once?: boolean;
+const container: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+interface FadeInProps {
+  children: ReactNode;
+  className?: string;
 }
 
 export function FadeInStagger({
   children,
-  staggerDelay = 0.2,
-  initialDelay = 0.1,
-  once = true,
   className,
-  viewport,
-  variants,
-  ...props
-}: FadeInStaggerProps): JSX.Element {
-  const containerVariants: Variants = variants ?? {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: staggerDelay,
-        delayChildren: initialDelay,
-      },
-    },
-  };
-
+}: FadeInProps): JSX.Element {
   return (
     <FadeInStaggerContext.Provider value={true}>
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={viewport ?? { once }}
-        variants={containerVariants}
+        viewport={{ once: true }}
+        variants={container}
         className={className}
-        {...props}
       >
         {children}
       </motion.div>
@@ -49,61 +44,22 @@ export function FadeInStagger({
   );
 }
 
-interface FadeInProps extends HTMLMotionProps<"div"> {
-  children: React.ReactNode;
-  delay?: number;
-  duration?: number;
-  yOffset?: number;
-  once?: boolean;
-  variants?: Variants;
-}
-
 export default function FadeIn({
   children,
-  delay,
-  duration = 0.8,
-  yOffset = 20,
-  once = true,
   className,
-  viewport,
-  variants,
-  ...props
 }: FadeInProps): JSX.Element {
-  const isInStaggerGroup: boolean = useContext(FadeInStaggerContext);
+  const inStagger: boolean = useContext(FadeInStaggerContext);
 
-  if (isInStaggerGroup) {
-    const childVariants: Variants = variants ?? {
-      hidden: { opacity: 0, y: yOffset },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration,
-          ...(delay !== undefined ? { delay } : {}),
-          ease: [0.16, 1, 0.3, 1],
-        },
-      },
-    };
-
-    return (
-      <motion.div variants={childVariants} className={className} {...props}>
-        {children}
-      </motion.div>
-    );
-  }
-
+  // Dans un groupe, le parent pilote l'animation ; seul, il s'anime à l'apparition.
   return (
     <motion.div
-      initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={viewport ?? { once }}
-      transition={{
-        duration,
-        delay: delay ?? 0,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      variants={item}
+      {...(!inStagger && {
+        initial: "hidden",
+        whileInView: "visible",
+        viewport: { once: true },
+      })}
       className={className}
-      {...props}
     >
       {children}
     </motion.div>

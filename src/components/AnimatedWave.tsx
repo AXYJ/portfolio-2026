@@ -6,12 +6,11 @@ const wavePath: string =
 
 export default function AnimatedWave(): JSX.Element {
   return (
-    <div className="transition absolute bottom-0 left-0 w-full h-1/2 lg:h-3/4 pointer-events-none">
+    <div className="pointer-events-none absolute bottom-0 left-0 h-1/2 w-full lg:h-3/4">
       <svg
-        className="w-full h-full"
+        className="h-full w-full overflow-visible"
         viewBox="0 0 1440 600"
         preserveAspectRatio="none"
-        style={{ overflow: "visible" }}
       >
         <defs>
           <linearGradient
@@ -26,11 +25,7 @@ export default function AnimatedWave(): JSX.Element {
             <stop offset="90%" stopColor="#FFF8F8" stopOpacity="1" />
           </linearGradient>
         </defs>
-        <path
-          d={wavePath}
-          fill="url(#waveGrad)"
-          style={{ filter: "blur(30px)" }}
-        />
+        <path d={wavePath} fill="url(#waveGrad)" className="blur-[30px]" />
       </svg>
     </div>
   );

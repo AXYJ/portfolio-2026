@@ -1,114 +1,56 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-Light.woff2') format('woff2');
+  font-family: "Switzer";
+  src: url("../fonts/Switzer-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-LightItalic.woff2') format('woff2');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-Regular.woff2') format('woff2');
+  font-family: "Switzer";
+  src: url("../fonts/Switzer-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-Italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-Medium.woff2') format('woff2');
+  font-family: "Switzer";
+  src: url("../fonts/Switzer-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-MediumItalic.woff2') format('woff2');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-Semibold.woff2') format('woff2');
+  font-family: "Switzer";
+  src: url("../fonts/Switzer-Semibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-SemiboldItalic.woff2') format('woff2');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-Black.woff2') format('woff2');
+  font-family: "Switzer";
+  src: url("../fonts/Switzer-Black.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Switzer';
-  src: url('../fonts/Switzer-BlackItalic.woff2') format('woff2');
-  font-weight: 900;
-  font-style: italic;
   font-display: swap;
 }
 
 :root {
-  --background: #FFF8F8;
-  --foreground: #171717;
-
-  --white: #FFF8F8;
-  --accent: #FF2F00;
+  --white: #fff8f8;
+  --accent: #ff2f00;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--background);
-  font-family: 'Switzer', sans-serif;
-  color: var(--accent);
-  scroll-behavior: smooth;
+@theme {
+  --font-sans: "Switzer", sans-serif;
 }
 
 section {
-  @apply grid grid-cols-2 lg:grid-cols-4 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-16 w-full p-8 lg:p-16 mx-auto;
-  max-width: 1280px;
+  @apply mx-auto grid w-full max-w-7xl grid-cols-2 gap-x-4 gap-y-8 p-8 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16 lg:p-16;
 }
 
 p {
@@ -116,68 +58,11 @@ p {
 }
 
 h2 {
-  @apply text-3xl lg:text-5xl col-span-full font-black uppercase;
+  @apply col-span-full text-3xl font-black uppercase lg:text-5xl;
 }
 
 h3 {
-  @apply text-xl lg:text-3xl font-bold;
-}
-
-.overlay,
-.project-image img {
-  transition: all .3s ease-out;
-}
-
-.project-image:hover .overlay {
-  opacity: 1;
-  filter: blur(0);
-}
-
-.en-savoir-plus {
-  transition: all .5s ease-out;
-}
-
-.project-image:hover .en-savoir-plus {
-  filter: blur(0);
-  opacity: 1;
-}
-/* 
-article:hover img {
-  opacity: 0;
-} */
-
-.voir-projet .first-arrow,
-.voir-projet .second-arrow {
-  display: flex;
-  transition: all 0.3s ease-out;
-}
-
-.voir-projet .first-arrow {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.voir-projet .second-arrow {
-  opacity: 0;
-  transform: scale(0);
-}
-
-.voir-projet:hover .first-arrow {
-  opacity: 0;
-  transform: scale(0);
-}
-
-.voir-projet:hover .second-arrow {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.voir-projet {
-  transition: all .3s ease-out;
-}
-
-.voir-projet:hover {
-  transform: translateX(-5px);
+  @apply text-xl font-bold lg:text-3xl;
 }
 
 @media (prefers-reduced-motion: reduce) {

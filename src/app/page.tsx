@@ -6,29 +6,69 @@ import HeroBanner from "@/components/HeroBanner";
 import EmailLink from "@/components/EmailLink";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
 import { ArrowRight } from "lucide-react";
+import { Fragment, type ReactNode } from "react";
 import type { JSX } from "react/jsx-runtime";
 
 import type { project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
 
+const menu = [
+  { label: "Projets", href: "#projects" },
+  { label: "À propos", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
+const externalLinks = [
+  { label: "Github", href: "https://github.com/AXYJ" },
+  {
+    label: "Linkedin",
+    href: "https://www.linkedin.com/in/alex-xiao-12a2bb35b",
+  },
+];
+
+const linkHover = "hover:underline underline-offset-4";
+
+// Lien avec flèche qui apparaît au survol
+function ArrowLink({
+  href,
+  className = "",
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+}): JSX.Element {
+  return (
+    <a
+      href={href}
+      className={`group flex w-fit items-center gap-2 transition-all duration-300 hover:-translate-x-1 ${className}`}
+    >
+      {children}
+      <ArrowRight className="size-5 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+    </a>
+  );
+}
+
 export default function Home(): JSX.Element {
   const lastProjects: project[] = projects
     .filter((project: project) => project.highlighted)
-    .sort((a: project, b: project) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort(
+      (a: project, b: project) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
 
   return (
-    <main className="flex flex-1 w-full mx-auto flex-col items-center bg-(--white) sm:items-start">
+    <main className="mx-auto flex w-full flex-1 flex-col items-center bg-(--white) sm:items-start">
       <HeroBanner>
         {/* 1. L'arrière-plan avec dégradé et texture grainée */}
         <Gradient />
 
         {/* 2. Les 12 rectangles avec blend-mode et flou (6 sur mobile, 12 sur écran moyen/large) */}
-        <div className="rectangles absolute inset-0 grid grid-cols-6 md:grid-cols-12 w-full h-full pointer-events-none mix-blend-soft-light blur-xs opacity-70">
+        <div className="pointer-events-none absolute inset-0 grid h-full w-full grid-cols-6 opacity-70 mix-blend-soft-light blur-xs md:grid-cols-12">
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className={`h-full bg-linear-to-r from-white to-black
-                ${i >= 6 ? "hidden md:block" : ""}`}
+              className={`h-full bg-linear-to-r from-white to-black ${i >= 6 ? "hidden md:block" : ""}`}
             />
           ))}
         </div>
@@ -37,74 +77,53 @@ export default function Home(): JSX.Element {
         <AnimatedWave />
       </HeroBanner>
       <section>
-        <FadeIn className="myself col-span-3 lg:col-span-2 flex flex-col self-end">
+        <FadeIn className="col-span-3 flex flex-col self-end lg:col-span-2">
           <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black">
             ALEX XIAO
           </h1>
-          <span className="text-[clamp(1rem,2vw,1.5rem)] -mt-2 lg:-mt-4">
+          <span className="-mt-2 text-[clamp(1rem,2vw,1.5rem)] lg:-mt-4">
             Web Design & Développeur Web
           </span>
         </FadeIn>
-        <FadeInStagger className="grid grid-cols-2 lg:grid-cols-4 grid-rows-[auto_1fr] gap-x-8 gap-y-2 col-span-4">
-          <FadeIn className="location grid row-span-2 grid-rows-subgrid gap-y-0">
+        <FadeInStagger className="col-span-4 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-8 gap-y-2 lg:grid-cols-4">
+          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
             <span className="font-light">Situé à</span>
             <p className="font-medium">Bruxelles</p>
           </FadeIn>
-          <FadeIn className="languages grid row-span-2 grid-rows-subgrid gap-y-0">
+          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
             <span className="font-light">Langues</span>
             <div className="flex flex-col">
               <p className="font-medium">Français (FR)</p>
               <p className="font-medium">Anglais (EN)</p>
             </div>
           </FadeIn>
-          <FadeIn className="menu grid row-span-2 grid-rows-subgrid gap-y-0">
+          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
             <span className="font-light">Menu</span>
             <ul>
-              <li className="font-medium text-xl">
-                <a
-                  href="#projects"
-                  className="flex items-center gap-2 group hover:-translate-x-1 transition-all duration-300 w-fit"
-                >
-                  <span>Projets</span>
-                  <ArrowRight className="size-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                </a>
-              </li>
-              <li className="font-medium text-xl">
-                <a
-                  href="#about"
-                  className="flex items-center gap-2 group hover:-translate-x-1 transition-all duration-300 w-fit"
-                >
-                  <span>À propos</span>
-                  <ArrowRight className="size-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                </a>
-              </li>
-              <li className="font-medium text-xl">
-                <a
-                  href="#contact"
-                  className="flex items-center gap-2 group hover:-translate-x-1 transition-all duration-300 w-fit"
-                >
-                  <span>Contact</span>
-                  <ArrowRight className="size-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                </a>
-              </li>
+              {menu.map(({ label, href }) => (
+                <li key={href} className="text-xl font-medium">
+                  <ArrowLink href={href}>
+                    <span>{label}</span>
+                  </ArrowLink>
+                </li>
+              ))}
             </ul>
           </FadeIn>
-          <FadeIn className="grid row-span-2 grid-rows-subgrid gap-y-0">
+          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
             <span aria-hidden="true">&nbsp;</span>
-            <a
+            <ArrowLink
               href="#projects"
-              className="font-medium h-fit text-start lg:text-xl flex items-center gap-2 group hover:-translate-x-1 transition-all duration-300 w-fit"
+              className="h-fit text-start font-medium lg:text-xl"
             >
               Section suivante
-              <ArrowRight className="size-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-            </a>
+            </ArrowLink>
           </FadeIn>
         </FadeInStagger>
       </section>
 
       <section id="projects">
         <h2>Projets</h2>
-        <FadeInStagger className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-16 col-span-4">
+        <FadeInStagger className="col-span-4 grid grid-cols-2 gap-x-4 gap-y-16 lg:grid-cols-4">
           {/* Boucle pour afficher 2 derniers projets */}
           {lastProjects.map((project: project) => (
             <FadeIn
@@ -112,7 +131,7 @@ export default function Home(): JSX.Element {
               className="col-span-2 grid grid-cols-subgrid gap-y-4"
             >
               <Link
-                className="project-image relative overflow-hidden w-full cursor-pointer col-span-2 lg:col-span-1"
+                className="group relative col-span-2 w-full cursor-pointer overflow-hidden lg:col-span-1"
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -124,10 +143,10 @@ export default function Home(): JSX.Element {
                   height={1000}
                   className="h-full w-full object-cover"
                 />
-                <div className="overlay absolute inset-0 w-full h-full z-5 opacity-0">
+                <div className="absolute inset-0 z-5 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <Gradient />
                 </div>
-                <span className="en-savoir-plus text-xl lg:text-2xl w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-(--white) opacity-0 blur-xl flex items-center justify-center gap-2 group">
+                <span className="absolute inset-0 z-10 flex items-center justify-center gap-2 text-xl text-(--white) opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100 group-hover:blur-none lg:text-2xl">
                   Voir le site
                   <ArrowRight className="size-7" />
                 </span>
@@ -136,10 +155,10 @@ export default function Home(): JSX.Element {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col gap-0 self-end cursor-pointer hover:opacity-85 transition-opacity col-span-2 lg:col-span-1"
+                className="col-span-2 flex cursor-pointer flex-col gap-0 self-end transition-opacity hover:opacity-85 lg:col-span-1"
               >
                 <span>{project.year}</span>
-                <span className="text-xl lg:text-2xl w-fit h-fit font-semibold">
+                <span className="h-fit w-fit text-xl font-semibold lg:text-2xl">
                   {project.title}
                 </span>
                 <span className="pr-8 text-lg">{project.description}</span>
@@ -150,9 +169,9 @@ export default function Home(): JSX.Element {
       </section>
 
       <section id="about">
-        <FadeInStagger className="h-full grid-cols-subgrid grid col-span-4 gap-y-4 lg:gap-y-8 ">
+        <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
           <h2>À propos</h2>
-          <div className="formations col-span-2 gap-3 lg:gap-6 flex flex-col">
+          <div className="col-span-2 flex flex-col gap-3 lg:gap-6">
             <h3>Formations</h3>
             <div className="flex flex-col gap-4">
               <FadeIn>
@@ -172,7 +191,7 @@ export default function Home(): JSX.Element {
             </div>
           </div>
 
-          <div className="description col-span-3 lg:col-span-2 text-base lg:text-xl font-medium flex gap-6 flex-col">
+          <div className="col-span-3 flex flex-col gap-6 text-base font-medium lg:col-span-2 lg:text-xl">
             <span aria-hidden="true" className="hidden lg:block">
               &nbsp;
             </span>
@@ -193,7 +212,7 @@ export default function Home(): JSX.Element {
       </section>
 
       <section id="contact">
-        <FadeInStagger className="h-full grid-cols-subgrid grid col-span-4 gap-y-4 lg:gap-y-8 ">
+        <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
           <h2>Me contacter</h2>
           <FadeIn className="col-span-3">
             <p>
@@ -202,38 +221,30 @@ export default function Home(): JSX.Element {
             </p>
           </FadeIn>
           <FadeIn className="col-span-2">
-            <EmailLink className="text-lg lg:text-3xl font-semibold" />
+            <EmailLink className="text-lg font-semibold lg:text-3xl" />
           </FadeIn>
         </FadeInStagger>
       </section>
 
-      <footer className="grid grid-cols-1 mt-8 lg:grid-cols-6 gap-x-4 lg:gap-x-8 gap-y-2 lg:gap-y-16 w-full p-8 lg:p-16 mx-auto max-w-7xl">
+      <footer className="mx-auto mt-8 grid w-full max-w-7xl grid-cols-1 gap-x-4 gap-y-2 p-8 lg:grid-cols-6 lg:gap-x-8 lg:gap-y-16 lg:p-16">
         <span className="lg:col-span-2">
           © 2026 Alex Xiao — Tous droits réservés
         </span>
-        <span className="lg:text-center col-span-1 lg:col-span-2">
-          <a
-            href="https://github.com/AXYJ"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline underline-offset-4"
-          >
-            Github
-          </a>{" "}
-          |{" "}
-          <a
-            href="https://www.linkedin.com/in/alex-xiao-12a2bb35b"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline underline-offset-4"
-          >
-            Linkedin
-          </a>{" "}
-          |{" "}
-          <Link
-            href="/mentions-legales"
-            className="hover:underline underline-offset-4"
-          >
+        <span className="col-span-1 lg:col-span-2 lg:text-center">
+          {externalLinks.map(({ label, href }) => (
+            <Fragment key={href}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkHover}
+              >
+                {label}
+              </a>{" "}
+              |{" "}
+            </Fragment>
+          ))}
+          <Link href="/mentions-legales" className={linkHover}>
             Mentions légales
           </Link>
         </span>

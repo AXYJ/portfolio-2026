@@ -9,9 +9,6 @@ export const metadata: Metadata = {
     template: "%s | Alex Xiao",
   },
   description: "Portfolio 2026 | Alex Xiao - Web Design & Développeur Web",
-  icons: {
-    icon: "/favicon.svg",
-  },
   robots: {
     index: true,
     follow: true,
@@ -41,10 +38,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">): JSX.Element {
+export default function RootLayout({
+  children,
+}: LayoutProps<"/">): JSX.Element {
   return (
-    <html lang="fr" className={`h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html lang="fr" className="h-full scroll-smooth antialiased">
+      <body className="flex min-h-full flex-col bg-(--white) text-(--accent)">
         {children}
       </body>
     </html>

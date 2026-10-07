@@ -8,13 +8,14 @@ export type project = {
   url: string;
   image: string;
   highlighted: boolean;
-}
+};
 
 export const projects: project[] = [
   {
     slug: "rituels",
     title: "Rituels",
-    description: "Jeu de cartes tactique en ligne : déchiffrez les règles cachées à chaque manche et soyez le premier à atteindre le quota de graines",
+    description:
+      "Jeu de cartes tactique en ligne : déchiffrez les règles cachées à chaque manche et soyez le premier à atteindre le quota de graines",
     date: "2026-06-18",
     year: 2026,
     tags: ["UI/UX", "Next.js", "Tailwind CSS", "Node.js", "Websockets"],
@@ -25,7 +26,8 @@ export const projects: project[] = [
   {
     slug: "museek",
     title: "Museek",
-    description: "L'expérience du blindtest réinventée : affrontez vos amis en direct sur vos morceaux préférés",
+    description:
+      "L'expérience du blindtest réinventée : affrontez vos amis en direct sur vos morceaux préférés",
     date: "2026-08-28",
     year: 2026,
     tags: ["UI/UX", "Next.js", "Tailwind CSS", "Node.js", "Websockets"],
