@@ -3,6 +3,7 @@ import Link from "next/link";
 import Gradient from "@/components/Gradient";
 import AnimatedWave from "@/components/AnimatedWave";
 import HeroBanner from "@/components/HeroBanner";
+import EmailLink from "@/components/EmailLink";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
 import { ArrowRight } from "lucide-react";
 import type { JSX } from "react/jsx-runtime";
@@ -11,8 +12,6 @@ import type { project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
 
 export default function Home(): JSX.Element {
-  const emailUser: string = "contact";
-  const emailDomain: string = "xiao-web.com";
   const lastProjects: project[] = projects
     .filter((project: project) => project.highlighted)
     .sort((a: project, b: project) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -125,7 +124,7 @@ export default function Home(): JSX.Element {
                   height={1000}
                   className="h-full w-full object-cover"
                 />
-                <div className="overlay absolute inset-0 w-full h-full z-5 bg-(--accent) opacity-0 text-(--white) flex flex-col justify-center items-center">
+                <div className="overlay absolute inset-0 w-full h-full z-5 opacity-0">
                   <Gradient />
                 </div>
                 <span className="en-savoir-plus text-xl lg:text-2xl w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-(--white) opacity-0 blur-xl flex items-center justify-center gap-2 group">
@@ -203,13 +202,7 @@ export default function Home(): JSX.Element {
             </p>
           </FadeIn>
           <FadeIn className="col-span-2">
-            <a
-              className="text-lg lg:text-3xl font-semibold"
-              href={`mailto:${emailUser}@${emailDomain}`}
-              target="_blank"
-            >
-              {emailUser} [at] {emailDomain}
-            </a>
+            <EmailLink className="text-lg lg:text-3xl font-semibold" />
           </FadeIn>
         </FadeInStagger>
       </section>

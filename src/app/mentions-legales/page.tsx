@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { JSX } from "react/jsx-runtime";
+import EmailLink from "@/components/EmailLink";
 
 export const metadata: Metadata = {
   title: "Mentions Légales & Confidentialité | Alex Xiao",
@@ -10,9 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function MentionsLegales(): JSX.Element {
-  const emailUser: string = "contact";
-  const emailDomain: string = "xiao-web.com";
-
   return (
     <main className="flex flex-1 w-full mx-auto flex-col items-center bg-(--white) min-h-screen">
       {/* En-tête / Retour */}
@@ -51,12 +49,7 @@ export default function MentionsLegales(): JSX.Element {
             <p className="font-light">Localisation : Bruxelles, Belgique</p>
             <p className="font-light">
               Contact :{" "}
-              <a
-                href={`mailto:${emailUser}@${emailDomain}`}
-                className="font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
-              >
-                {emailUser}@{emailDomain}
-              </a>
+              <EmailLink className="font-medium underline underline-offset-4 hover:opacity-80 transition-opacity" />
             </p>
           </div>
         </div>
@@ -151,12 +144,7 @@ export default function MentionsLegales(): JSX.Element {
                 rectification et de suppression de vos données personnelles
                 transmises lors d&apos;un échange. Vous pouvez exercer ce droit
                 à tout moment par e-mail à{" "}
-                <a
-                  href={`mailto:${emailUser}@${emailDomain}`}
-                  className="font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
-                >
-                  {emailUser}@{emailDomain}
-                </a>
+                <EmailLink className="font-medium underline underline-offset-4 hover:opacity-80 transition-opacity" />
                 .
               </p>
             </div>
