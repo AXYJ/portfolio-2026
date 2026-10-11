@@ -1,6 +1,7 @@
 # 🌐 Portfolio 2026 — Alex Xiao
 
-> Portfolio personnel et vitrine de projets d'Alex Xiao — Développeur Web & Web Designer basé à Bruxelles.
+> Portfolio personnel et vitrine de projets d'Alex Xiao — Développeur Web & Web Designer basé à Bruxelles, à la recherche d'un CDI ou d'un stage.
+> Projets présentés : [Museek](https://museek.xiao-web.com/) (blindtest multijoueur) et [Rituels](https://rituels.xiao-web.com/) (jeu de cartes en ligne). En ligne : [xiao-web.com](https://xiao-web.com/).
 
 ---
 

@@ -38,12 +38,34 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Alex Xiao",
+  url: "https://xiao-web.com",
+  jobTitle: "Développeur Web & Web Designer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bruxelles",
+    addressCountry: "BE",
+  },
+  knowsLanguage: ["fr", "en"],
+  sameAs: [
+    "https://github.com/AXYJ",
+    "https://www.linkedin.com/in/alex-xiao-12a2bb35b",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: LayoutProps<"/">): JSX.Element {
   return (
     <html lang="fr" className="h-full scroll-smooth antialiased">
       <body className="flex min-h-full flex-col bg-(--white) text-(--accent)">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
