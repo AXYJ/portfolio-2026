@@ -172,7 +172,7 @@ export default function MentionsLegales(): JSX.Element {
           </a>{" "}
           |{" "}
           <a
-            href="https://www.linkedin.com/in/alex-xiao-12a2bb35b"
+            href="https://www.linkedin.com/in/alex-xiao-web"
             target="_blank"
             rel="noopener noreferrer"
             className="underline-offset-4 hover:underline"

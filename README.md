@@ -115,7 +115,7 @@ Ajoutez un objet au tableau `projects` dans [`src/lib/projects.ts`](src/lib/proj
 - **Localisation** : Bruxelles, Belgique
 - **Email** : `contact@xiao-web.com`
 - **GitHub** : [AXYJ](https://github.com/AXYJ)
-- **LinkedIn** : [Alex Xiao](https://www.linkedin.com/in/alex-xiao-12a2bb35b)
+- **LinkedIn** : [Alex Xiao](https://www.linkedin.com/in/alex-xiao-web)
 
 ---
 

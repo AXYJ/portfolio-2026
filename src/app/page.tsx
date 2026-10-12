@@ -22,7 +22,7 @@ const externalLinks = [
   { label: "Github", href: "https://github.com/AXYJ" },
   {
     label: "Linkedin",
-    href: "https://www.linkedin.com/in/alex-xiao-12a2bb35b",
+    href: "https://www.linkedin.com/in/alex-xiao-web",
   },
 ];
 

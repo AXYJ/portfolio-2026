@@ -52,7 +52,7 @@ const jsonLd = {
   knowsLanguage: ["fr", "en"],
   sameAs: [
     "https://github.com/AXYJ",
-    "https://www.linkedin.com/in/alex-xiao-12a2bb35b",
+    "https://www.linkedin.com/in/alex-xiao-web",
   ],
 };
 
