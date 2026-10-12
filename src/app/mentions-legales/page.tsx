@@ -31,7 +31,7 @@ export default function MentionsLegales(): JSX.Element {
             Mentions Légales &amp; Confidentialité
           </h1>
           <p className="text-base font-light opacity-80 lg:text-lg">
-            Dernière mise à jour : Mars 2026
+            Dernière mise à jour : octobre 2026
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function MentionsLegales(): JSX.Element {
             01. Éditeur
           </h2>
           <div className="flex flex-col gap-2 lg:col-span-3">
-            <p className="text-lg font-semibold lg:text-xl">Alex Xiao</p>
+            <h3>Alex Xiao</h3>
             <p className="font-light">Web Design &amp; Développeur Web</p>
             <p className="font-light">Localisation : Bruxelles, Belgique</p>
             <p className="font-light">
@@ -60,9 +60,9 @@ export default function MentionsLegales(): JSX.Element {
             02. Hébergeur
           </h2>
           <div className="flex flex-col gap-2 lg:col-span-3">
-            <p className="text-lg font-semibold lg:text-xl">
+            <h3>
               Hostinger International Ltd.
-            </p>
+            </h3>
             <p className="font-light">
               Adresse : 61 Lordou Vironos Street, 6023 Larnaca, Chypre
             </p>
@@ -88,18 +88,24 @@ export default function MentionsLegales(): JSX.Element {
           <div className="flex flex-col gap-4 text-base lg:col-span-3 lg:text-lg">
             <p>
               L&apos;ensemble des éléments composant ce site internet (textes,
-              typographies, identités visuelles, maquettes graphiques, images,
-              code source et animations) sont la propriété exclusive d&apos;Alex
-              Xiao, sauf mention expresse contraire (notamment pour les visuels
-              et projets réalisés dans le cadre d&apos;études ou de
+              identités visuelles, maquettes graphiques, images, code source
+              et animations) sont la propriété exclusive d&apos;Alex Xiao,
+              sauf mention expresse contraire (notamment pour les visuels et
+              projets réalisés dans le cadre d&apos;études ou de
               collaborations).
+            </p>
+            <p>
+              La typographie utilisée sur ce site, Switzer, est une création
+              de Swiss Typefaces distribuée par Fontshare. Elle reste la
+              propriété de ses auteurs et son usage ici s&apos;effectue dans
+              le cadre de la licence accordée par ces derniers.
             </p>
             <p>
               Toute reproduction, représentation, diffusion ou adaptation,
               totale ou partielle, sans l&apos;accord écrit préalable de
               l&apos;auteur est strictement interdite et constituerait une
-              contrefaçon sanctionnée par le Code de la propriété
-              intellectuelle.
+              contrefaçon sanctionnée par le Code de droit économique belge
+              (Livre XI — Propriété intellectuelle).
             </p>
           </div>
         </div>
@@ -111,18 +117,20 @@ export default function MentionsLegales(): JSX.Element {
           </h2>
           <div className="flex flex-col gap-4 text-base lg:col-span-3 lg:text-lg">
             <div>
-              <h3 className="mb-1 text-lg font-semibold lg:text-xl">
+              <h3>
                 Absence totale de traceurs et cookies tiers
               </h3>
               <p className="font-light">
                 Ce site n&apos;utilise aucun cookie de pistage, traceur
                 publicitaire ou outil d&apos;analyse statistique tiers (tel que
-                Google Analytics). Votre navigation est entièrement anonyme et
-                ne nécessite aucun bandeau de consentement préalable.
+                Google Analytics), et ne nécessite donc aucun bandeau de
+                consentement préalable. Seuls des logs techniques standards
+                (adresse IP) sont conservés par l&apos;hébergeur dans le cadre
+                normal du fonctionnement du site.
               </p>
             </div>
             <div>
-              <h3 className="mb-1 text-lg font-semibold lg:text-xl">
+              <h3>
                 Formulaire et prise de contact
               </h3>
               <p className="font-light">
@@ -135,7 +143,7 @@ export default function MentionsLegales(): JSX.Element {
               </p>
             </div>
             <div>
-              <h3 className="mb-1 text-lg font-semibold lg:text-xl">
+              <h3>
                 Vos droits (RGPD)
               </h3>
               <p className="font-light">
@@ -145,9 +153,25 @@ export default function MentionsLegales(): JSX.Element {
                 transmises lors d&apos;un échange. Vous pouvez exercer ce droit
                 à tout moment par e-mail à{" "}
                 <EmailLink className="font-medium underline underline-offset-4 transition-opacity hover:opacity-80" />
-                .
+                . Vous disposez également du droit d&apos;introduire une
+                réclamation auprès de l&apos;Autorité de Protection des
+                Données (APD) belge.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* 5. Droit applicable */}
+        <div className="col-span-2 grid grid-cols-1 gap-4 lg:col-span-4 lg:gap-8">
+          <h2 className="text-2xl font-bold uppercase lg:col-span-1 lg:text-3xl">
+            05. Droit applicable
+          </h2>
+          <div className="flex flex-col gap-4 text-base lg:col-span-3 lg:text-lg">
+            <p>
+              Les présentes mentions légales sont soumises au droit belge. En
+              cas de litige, et à défaut de résolution amiable, les tribunaux
+              de Bruxelles seront seuls compétents.
+            </p>
           </div>
         </div>
       </section>

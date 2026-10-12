@@ -89,13 +89,13 @@ export default function Home(): JSX.Element {
         <FadeInStagger className="col-span-4 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-8 gap-y-2 lg:grid-cols-4">
           <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
             <span className="font-light">Situé à</span>
-            <p className="font-medium">Bruxelles</p>
+            <p>Bruxelles</p>
           </FadeIn>
           <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
             <span className="font-light">Langues</span>
             <div className="flex flex-col">
-              <p className="font-medium">Français (FR)</p>
-              <p className="font-medium">Anglais (EN)</p>
+              <p>Français (FR)</p>
+              <p>Anglais (EN)</p>
             </div>
           </FadeIn>
           <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
@@ -162,7 +162,7 @@ export default function Home(): JSX.Element {
                 <span className="h-fit w-fit text-xl font-semibold lg:text-2xl">
                   {project.title}
                 </span>
-                <span className="pr-8 text-lg">{project.description}</span>
+                <span className="pr-8 text-lg font-light">{project.description}</span>
               </Link>
             </FadeIn>
           ))}
@@ -172,27 +172,27 @@ export default function Home(): JSX.Element {
       <section id="about">
         <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
           <h2>À propos</h2>
-          <div className="col-span-2 flex flex-col gap-3 lg:gap-6">
+          <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
             <h3>Formations</h3>
             <div className="flex flex-col gap-4">
               <FadeIn>
-                <p className="font-semibold">
+                <p>
                   Techniques graphiques orientation WEB | HEFF
                 </p>
-                <p>2023 - 2026 | Bruxelles</p>
+                <p className="font-light">2023 - 2026 | Bruxelles</p>
               </FadeIn>
               <FadeIn>
-                <p className="font-semibold">Stage | MindFactory</p>
-                <p>2026 | Bruxelles </p>
+                <p>Stage | MindFactory</p>
+                <p className="font-light">2026 | Bruxelles </p>
               </FadeIn>
               <FadeIn>
-                <p className="font-semibold">Accessibilité Web | AnySurfer</p>
-                <p>2025 | Bruxelles</p>
+                <p>Accessibilité Web | AnySurfer</p>
+                <p className="font-light">2025 | Bruxelles</p>
               </FadeIn>
             </div>
           </div>
 
-          <div className="col-span-3 flex flex-col gap-6 text-base font-medium lg:col-span-2 lg:text-xl">
+          <div className="col-span-3 flex flex-col gap-2 lg:gap-4 text-base font-medium lg:col-span-2 lg:text-xl">
             <span aria-hidden="true" className="hidden lg:block">
               &nbsp;
             </span>
