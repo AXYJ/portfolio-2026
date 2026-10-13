@@ -58,174 +58,180 @@ export default function Home(): JSX.Element {
     );
 
   return (
-    <main className="mx-auto flex w-full flex-1 flex-col items-center bg-(--white) sm:items-start">
-      <Reveal />
-      <div className="relative h-[65vh] w-full animate-fade-in overflow-hidden lg:h-[40vh]">
-        {/* 1. L'arrière-plan avec dégradé et texture grainée */}
-        <Gradient />
+    <>
+      <main className="mx-auto flex w-full flex-1 flex-col items-center bg-(--white) sm:items-start">
+        <Reveal />
+        <div className="relative h-[65vh] w-full animate-fade-in overflow-hidden lg:h-[40vh]">
+          {/* 1. L'arrière-plan avec dégradé et texture grainée */}
+          <Gradient />
 
-        {/* 2. Les 12 rectangles avec blend-mode et flou (6 sur mobile, 12 sur écran moyen/large) */}
-        <div className="pointer-events-none absolute inset-0 grid h-full w-full grid-cols-6 opacity-70 mix-blend-soft-light blur-xs md:grid-cols-12">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              key={i}
-              className={`h-full bg-linear-to-r from-white to-black ${i >= 6 ? "hidden md:block" : ""}`}
-            />
-          ))}
+          {/* 2. Les 12 rectangles avec blend-mode et flou (6 sur mobile, 12 sur écran moyen/large) */}
+          <div className="pointer-events-none absolute inset-0 grid h-full w-full grid-cols-6 opacity-70 mix-blend-soft-light blur-xs md:grid-cols-12">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div
+                key={i}
+                className={`h-full bg-linear-to-r from-white to-black ${i >= 6 ? "hidden md:block" : ""}`}
+              />
+            ))}
+          </div>
+
+          {/* 3. La vague SVG animée par-dessus (dégradé transparent -> #FFF8F8) */}
+          <AnimatedWave />
         </div>
-
-        {/* 3. La vague SVG animée par-dessus (dégradé transparent -> #FFF8F8) */}
-        <AnimatedWave />
-      </div>
-      <section>
-        <FadeIn className="col-span-3 flex flex-col self-end lg:col-span-2">
-          <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black">
-            ALEX XIAO
-          </h1>
-          <span className="-mt-2 text-[clamp(1rem,2vw,1.5rem)] lg:-mt-4">
-            Web Design & Développeur Web
-          </span>
-        </FadeIn>
-        <FadeInStagger className="col-span-4 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-8 gap-y-2 lg:grid-cols-4">
-          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
-            <span className="font-light">Situé à</span>
-            <p>Bruxelles</p>
-          </FadeIn>
-          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
-            <span className="font-light">Langues</span>
-            <div className="flex flex-col">
-              <p>Français (FR)</p>
-              <p>Anglais (EN)</p>
-            </div>
-          </FadeIn>
-          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
-            <span className="font-light">Menu</span>
-            <ul>
-              {menu.map(({ label, href }) => (
-                <li key={href} className="text-xl font-medium">
-                  <ArrowLink href={href}>
-                    <span>{label}</span>
-                  </ArrowLink>
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
-          <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
-            <span aria-hidden="true">&nbsp;</span>
-            <ArrowLink
-              href="#projects"
-              className="h-fit text-start font-medium lg:text-xl"
-            >
-              Section suivante
-            </ArrowLink>
-          </FadeIn>
-        </FadeInStagger>
-      </section>
-
-      <section id="projects">
-        <h2>Projets</h2>
-        <FadeInStagger className="col-span-4 grid grid-cols-2 gap-x-4 gap-y-16 lg:grid-cols-4">
-          {/* Boucle pour afficher 2 derniers projets */}
-          {lastProjects.map((project: project) => (
-            <FadeIn
-              key={project.slug}
-              className="col-span-2 grid grid-cols-subgrid gap-y-4"
-            >
-              <Link
-                className="group relative col-span-2 w-full cursor-pointer overflow-hidden lg:col-span-1"
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={1000}
-                  height={1000}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 z-5 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <Gradient />
-                </div>
-                <span className="absolute inset-0 z-10 flex items-center justify-center gap-2 text-xl text-(--white) opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100 group-hover:blur-none lg:text-2xl">
-                  Voir le site
-                  <ArrowRight className="size-7" />
-                </span>
-              </Link>
-              <Link
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="col-span-2 flex cursor-pointer flex-col gap-0 self-end transition-opacity hover:opacity-85 lg:col-span-1"
-              >
-                <span>{project.year}</span>
-                <span className="h-fit w-fit text-xl font-semibold lg:text-2xl">
-                  {project.title}
-                </span>
-                <span className="pr-8 text-lg font-light">{project.description}</span>
-              </Link>
-            </FadeIn>
-          ))}
-        </FadeInStagger>
-      </section>
-
-      <section id="about">
-        <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
-          <h2>À propos</h2>
-          <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
-            <h3>Formations</h3>
-            <div className="flex flex-col gap-4">
-              <FadeIn>
-                <p>
-                  Techniques graphiques orientation WEB | HEFF
-                </p>
-                <p className="font-light">2023 - 2026 | Bruxelles</p>
-              </FadeIn>
-              <FadeIn>
-                <p>Stage | MindFactory</p>
-                <p className="font-light">2026 | Bruxelles </p>
-              </FadeIn>
-              <FadeIn>
-                <p>Accessibilité Web | AnySurfer</p>
-                <p className="font-light">2025 | Bruxelles</p>
-              </FadeIn>
-            </div>
-          </div>
-
-          <div className="col-span-3 flex flex-col gap-2 lg:gap-4 text-base font-medium lg:col-span-2 lg:text-xl">
-            <span aria-hidden="true" className="hidden lg:block">
-              &nbsp;
+        <section>
+          <FadeIn className="col-span-3 flex flex-col self-end lg:col-span-2">
+            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black">
+              ALEX XIAO
+            </h1>
+            <span className="-mt-2 text-[clamp(1rem,2vw,1.5rem)] lg:-mt-4">
+              Web Design & Développeur Web
             </span>
-            <div>
-              <FadeIn>
-                Développeur front-end et web designer en Belgique, j’aime
-                concevoir des interfaces soignées, vivantes et agréables à
-                utiliser.
-              </FadeIn>
-              <FadeIn>
-                Diplômé récemment, je recherche une équipe avec laquelle
-                collaborer sur des projets concrets et continuer à monter en
-                compétences.
-              </FadeIn>
-            </div>
-          </div>
-        </FadeInStagger>
-      </section>
+          </FadeIn>
+          <FadeInStagger className="col-span-4 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-8 gap-y-2 lg:grid-cols-4">
+            <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
+              <span className="font-light">Situé à</span>
+              <p>Bruxelles</p>
+            </FadeIn>
+            <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
+              <span className="font-light">Langues</span>
+              <div className="flex flex-col">
+                <p>Français (FR)</p>
+                <p>Anglais (EN)</p>
+              </div>
+            </FadeIn>
+            <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
+              <span className="font-light">Menu</span>
+              <nav aria-label="Menu principal">
+                <ul>
+                  {menu.map(({ label, href }) => (
+                    <li key={href} className="text-xl font-medium">
+                      <ArrowLink href={href}>
+                        <span>{label}</span>
+                      </ArrowLink>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </FadeIn>
+            <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
+              <span aria-hidden="true">&nbsp;</span>
+              <ArrowLink
+                href="#projects"
+                className="h-fit text-start font-medium lg:text-xl"
+              >
+                Section suivante
+              </ArrowLink>
+            </FadeIn>
+          </FadeInStagger>
+        </section>
 
-      <section id="contact">
-        <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
-          <h2>Me contacter</h2>
-          <FadeIn className="col-span-3">
-            <p>
-              Un projet en tête, une opportunité au sein de votre équipe ou
-              simplement envie d&apos;échanger ? Écrivez-moi !
-            </p>
-          </FadeIn>
-          <FadeIn className="col-span-2">
-            <EmailLink className="text-lg font-semibold lg:text-3xl text-(--accent)" />
-          </FadeIn>
-        </FadeInStagger>
-      </section>
+        <section id="projects">
+          <h2>Projets</h2>
+          <FadeInStagger className="col-span-4 grid grid-cols-2 gap-x-4 gap-y-16 lg:grid-cols-4">
+            {/* Boucle pour afficher 2 derniers projets */}
+            {lastProjects.map((project: project) => (
+              <FadeIn
+                key={project.slug}
+                className="col-span-2 grid grid-cols-subgrid gap-y-4"
+              >
+                <Link
+                  className="group relative col-span-2 w-full cursor-pointer overflow-hidden lg:col-span-1"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1000}
+                    height={1000}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 z-5 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <Gradient />
+                  </div>
+                  <span className="absolute inset-0 z-10 flex items-center justify-center gap-2 text-xl text-(--white) opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100 group-hover:blur-none lg:text-2xl">
+                    Voir le site
+                    <ArrowRight className="size-7" />
+                  </span>
+                </Link>
+                <Link
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="col-span-2 flex cursor-pointer flex-col gap-0 self-end transition-opacity hover:opacity-85 lg:col-span-1"
+                >
+                  <span>{project.year}</span>
+                  <span className="h-fit w-fit text-xl font-semibold lg:text-2xl">
+                    {project.title}
+                  </span>
+                  <span className="pr-8 text-lg font-light">
+                    {project.description}
+                  </span>
+                </Link>
+              </FadeIn>
+            ))}
+          </FadeInStagger>
+        </section>
+
+        <section id="about">
+          <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
+            <h2>À propos</h2>
+            <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
+              <h3>Formations</h3>
+              <div className="flex flex-col gap-4">
+                <FadeIn>
+                  <p>Techniques graphiques orientation WEB | HEFF</p>
+                  <p className="font-light">2023 - 2026 | Bruxelles</p>
+                </FadeIn>
+                <FadeIn>
+                  <p>Stage | MindFactory</p>
+                  <p className="font-light">2026 | Bruxelles </p>
+                </FadeIn>
+                <FadeIn>
+                  <p>Accessibilité Web | AnySurfer</p>
+                  <p className="font-light">2025 | Bruxelles</p>
+                </FadeIn>
+              </div>
+            </div>
+
+            <div className="col-span-3 flex flex-col gap-2 text-base font-medium lg:col-span-2 lg:gap-4 lg:text-xl">
+              <span aria-hidden="true" className="hidden lg:block">
+                &nbsp;
+              </span>
+              <div>
+                <FadeIn>
+                  Développeur front-end et web designer en Belgique, j’aime
+                  concevoir des interfaces soignées, vivantes et agréables à
+                  utiliser.
+                </FadeIn>
+                <FadeIn>
+                  Diplômé récemment, je recherche une équipe avec laquelle
+                  collaborer sur des projets concrets et continuer à monter en
+                  compétences.
+                </FadeIn>
+              </div>
+            </div>
+          </FadeInStagger>
+        </section>
+
+        <section id="contact">
+          <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
+            <h2>Me contacter</h2>
+            <FadeIn className="col-span-3">
+              <p>
+                Un projet en tête, une opportunité au sein de votre équipe ou
+                simplement envie d&apos;échanger ? Écrivez-moi !
+              </p>
+            </FadeIn>
+            <FadeIn className="col-span-2">
+              <EmailLink className="text-lg font-semibold text-(--accent) lg:text-3xl" />
+            </FadeIn>
+          </FadeInStagger>
+        </section>
+      </main>
 
       <footer className="mx-auto mt-8 grid w-full max-w-7xl grid-cols-1 gap-x-4 gap-y-2 p-8 lg:grid-cols-6 lg:gap-x-8 lg:gap-y-16 lg:p-16">
         <span className="lg:col-span-2">
@@ -253,6 +259,6 @@ export default function Home(): JSX.Element {
           Design & Développement par Alex Xiao
         </span>
       </footer>
-    </main>
+    </>
   );
 }

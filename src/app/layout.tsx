@@ -69,6 +69,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Sans JS, <Reveal /> ne tourne pas : on affiche tout directement */}
+        <noscript>
+          <style>{"[data-fade]{opacity:1;translate:none}"}</style>
+        </noscript>
         {children}
       </body>
     </html>
