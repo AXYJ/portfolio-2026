@@ -44,11 +44,11 @@ Ce portfolio a été conçu pour présenter mes créations, compétences et exp�
 ```text
 portfolio/
 ├── public/
+│   ├── favicon.svg         # Favicon vectoriel (navigateurs récents)
 │   └── img/                # Images des projets et aperçus
 ├── src/
 │   ├── app/
-│   │   ├── favicon.ico     # Favicon du site
-│   │   ├── favicon.svg     # Source vectorielle du favicon (non servie)
+│   │   ├── favicon.ico     # Favicon du site (tous navigateurs)
 │   │   ├── globals.css     # Styles globaux, variables CSS et Tailwind v4
 │   │   ├── layout.tsx      # Layout racine Next.js (métadonnées, JSON-LD)
 │   │   ├── opengraph-image.tsx # Image de partage générée (next/og)
