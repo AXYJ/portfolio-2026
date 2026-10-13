@@ -136,7 +136,11 @@ export default function MentionsLegales(): JSX.Element {
                   votre client de messagerie électronique. Les données reçues
                   par e-mail sont exclusivement utilisées dans le but de
                   répondre à vos sollicitations professionnelles et ne sont
-                  jamais transmises, vendues ou cédées à des tiers.
+                  jamais transmises, vendues ou cédées à des tiers. Ce
+                  traitement repose sur l&apos;intérêt légitime à répondre à
+                  votre message ou, le cas échéant, sur des démarches préalables
+                  à un contrat (art. 6.1 f et b du RGPD). Ces e-mails sont
+                  supprimés au plus tard 2 ans après le dernier échange.
                 </p>
               </div>
               <div>
@@ -144,9 +148,10 @@ export default function MentionsLegales(): JSX.Element {
                 <p className="font-light">
                   Conformément au Règlement Général sur la Protection des
                   Données (RGPD), vous bénéficiez d&apos;un droit d&apos;accès,
-                  de rectification et de suppression de vos données personnelles
-                  transmises lors d&apos;un échange. Vous pouvez exercer ce
-                  droit à tout moment par e-mail à{" "}
+                  de rectification, d&apos;effacement, de limitation, de
+                  portabilité et d&apos;opposition concernant vos données
+                  personnelles transmises lors d&apos;un échange. Vous pouvez
+                  exercer ces droits à tout moment par e-mail à{" "}
                   <EmailLink className="font-medium underline underline-offset-4 transition-opacity hover:opacity-80" />
                   . Vous disposez également du droit d&apos;introduire une
                   réclamation auprès de l&apos;Autorité de Protection des
