@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { JSX } from "react/jsx-runtime";
 import EmailLink from "@/components/EmailLink";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Mentions Légales & Confidentialité",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function MentionsLegales(): JSX.Element {
   return (
     <>
-      <main className="mx-auto flex min-h-screen w-full flex-1 flex-col items-center bg-(--white)">
+      <main className="mx-auto flex w-full flex-1 flex-col items-center bg-(--white)">
         {/* En-tête / Retour */}
         <header className="flex w-full max-w-7xl items-center justify-between px-8 pt-12 pb-6 lg:px-16">
           <Link
@@ -171,38 +172,7 @@ export default function MentionsLegales(): JSX.Element {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="mx-auto mt-8 grid w-full max-w-7xl grid-cols-1 gap-x-4 gap-y-2 p-8 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-16 lg:p-16">
-        <span className="lg:col-span-2">
-          © 2026 Alex Xiao — Tous droits réservés
-        </span>
-        <span className="lg:text-center">
-          <Link href="/" className="underline-offset-4 hover:underline">
-            Accueil
-          </Link>{" "}
-          |{" "}
-          <a
-            href="https://github.com/AXYJ"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline-offset-4 hover:underline"
-          >
-            Github
-          </a>{" "}
-          |{" "}
-          <a
-            href="https://www.linkedin.com/in/alex-xiao-web"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline-offset-4 hover:underline"
-          >
-            Linkedin
-          </a>
-        </span>
-        <span className="lg:col-span-2 lg:text-end">
-          Design &amp; Développement par Alex Xiao
-        </span>
-      </footer>
+      <Footer page={{ label: "Accueil", href: "/" }} />
     </>
   );
 }

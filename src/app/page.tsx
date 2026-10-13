@@ -5,9 +5,10 @@ import Grain from "@/components/Grain";
 import AnimatedWave from "@/components/AnimatedWave";
 import Reveal from "@/components/Reveal";
 import EmailLink from "@/components/EmailLink";
+import Footer from "@/components/Footer";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
 import { ArrowRight } from "lucide-react";
-import { Fragment, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { JSX } from "react/jsx-runtime";
 
 import type { project } from "@/lib/projects";
@@ -18,16 +19,6 @@ const menu = [
   { label: "À propos", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
-
-const externalLinks = [
-  { label: "Github", href: "https://github.com/AXYJ" },
-  {
-    label: "Linkedin",
-    href: "https://www.linkedin.com/in/alex-xiao-web",
-  },
-];
-
-const linkHover = "hover:underline underline-offset-4";
 
 // Lien avec flèche qui apparaît au survol
 function ArrowLink({
@@ -130,7 +121,7 @@ export default function Home(): JSX.Element {
         <section id="projects">
           <h2>Projets</h2>
           <FadeInStagger className="col-span-4 grid grid-cols-2 gap-x-4 gap-y-16 lg:grid-cols-4">
-            {/* Boucle pour afficher 2 derniers projets */}
+            {/* Projets mis en avant, du plus récent au plus ancien */}
             {lastProjects.map((project: project) => (
               <FadeIn
                 key={project.slug}
@@ -236,32 +227,7 @@ export default function Home(): JSX.Element {
         </section>
       </main>
 
-      <footer className="mx-auto mt-8 grid w-full max-w-7xl grid-cols-1 gap-x-4 gap-y-2 p-8 lg:grid-cols-6 lg:gap-x-8 lg:gap-y-16 lg:p-16">
-        <span className="lg:col-span-2">
-          © 2026 Alex Xiao — Tous droits réservés
-        </span>
-        <span className="col-span-1 lg:col-span-2 lg:text-center">
-          {externalLinks.map(({ label, href }) => (
-            <Fragment key={href}>
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkHover}
-              >
-                {label}
-              </a>{" "}
-              |{" "}
-            </Fragment>
-          ))}
-          <Link href="/mentions-legales" className={linkHover}>
-            Mentions légales
-          </Link>
-        </span>
-        <span className="lg:col-span-2 lg:text-end">
-          Design & Développement par Alex Xiao
-        </span>
-      </footer>
+      <Footer page={{ label: "Mentions légales", href: "/mentions-legales" }} />
     </>
   );
 }
