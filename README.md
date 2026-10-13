@@ -57,7 +57,7 @@ portfolio/
 │   │   ├── AnimatedWave.tsx# Vague SVG en bas de la bannière
 │   │   ├── FadeIn.tsx      # Composant d'apparition fluide au scroll
 │   │   ├── Gradient.tsx    # Arrière-plan animé avec dégradés fluides
-│   │   ├── Grain.tsx       # Filtre SVG de bruit/grain
+│   │   ├── Grain.tsx       # Définitions SVG partagées (grain + dégradés), une fois par page
 │   │   └── Reveal.tsx      # Déclenche les animations d'apparition au scroll
 │   └── lib/
 │       └── projects.ts     # Liste typée des projets

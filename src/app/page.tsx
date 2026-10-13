@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Gradient from "@/components/Gradient";
+import Grain from "@/components/Grain";
 import AnimatedWave from "@/components/AnimatedWave";
 import Reveal from "@/components/Reveal";
 import EmailLink from "@/components/EmailLink";
@@ -61,6 +62,7 @@ export default function Home(): JSX.Element {
     <>
       <main className="mx-auto flex w-full flex-1 flex-col items-center bg-(--white) sm:items-start">
         <Reveal />
+        <Grain />
         <div className="relative h-[65vh] w-full animate-fade-in overflow-hidden lg:h-[40vh]">
           {/* 1. L'arrière-plan avec dégradé et texture grainée */}
           <Gradient />
@@ -147,6 +149,7 @@ export default function Home(): JSX.Element {
                     alt={project.title}
                     width={1000}
                     height={1000}
+                    sizes="(min-width: 1024px) 25vw, 100vw"
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 z-5 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100">
