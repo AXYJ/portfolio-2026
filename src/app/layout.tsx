@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import type { JSX } from "react/jsx-runtime";
 import "./globals.css";
 
+const description =
+  "Développeur front-end et web designer à Bruxelles. Découvrez mes projets web (Next.js, UI/UX) et contactez-moi.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://xiao-web.com"),
   title: {
     default: "Portfolio 2026 | Alex Xiao",
     template: "%s | Alex Xiao",
   },
-  description: "Portfolio 2026 | Alex Xiao - Web Design & Développeur Web",
+  description,
   robots: {
     index: true,
     follow: true,
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Portfolio 2026 | Alex Xiao",
-    description: "Portfolio 2026 | Alex Xiao - Web Design & Développeur Web",
+    description,
     url: "https://xiao-web.com",
     siteName: "Portfolio Alex Xiao",
     locale: "fr_FR",
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Portfolio 2026 | Alex Xiao",
-    description: "Portfolio 2026 | Alex Xiao - Web Design & Développeur Web",
+    description,
   },
 };
 

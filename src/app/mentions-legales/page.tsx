@@ -5,7 +5,8 @@ import type { JSX } from "react/jsx-runtime";
 import EmailLink from "@/components/EmailLink";
 
 export const metadata: Metadata = {
-  title: "Mentions Légales & Confidentialité | Alex Xiao",
+  title: "Mentions Légales & Confidentialité",
+  alternates: { canonical: "/mentions-legales" },
   description:
     "Mentions légales et politique de confidentialité du portfolio d'Alex Xiao.",
 };
