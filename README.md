@@ -47,7 +47,8 @@ portfolio/
 │   └── img/                # Images des projets et aperçus
 ├── src/
 │   ├── app/
-│   │   ├── icon.svg        # Favicon vectoriel du site
+│   │   ├── favicon.ico     # Favicon du site
+│   │   ├── favicon.svg     # Source vectorielle du favicon (non servie)
 │   │   ├── globals.css     # Styles globaux, variables CSS et Tailwind v4
 │   │   ├── layout.tsx      # Layout racine Next.js (métadonnées, JSON-LD)
 │   │   ├── opengraph-image.tsx # Image de partage générée (next/og)
