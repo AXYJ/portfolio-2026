@@ -64,7 +64,7 @@ export default function RootLayout({
 }: LayoutProps<"/">): JSX.Element {
   return (
     <html lang="fr" className="h-full scroll-smooth antialiased">
-      <body className="flex min-h-full flex-col bg-(--white) text-(--accent)">
+      <body className="flex min-h-full flex-col bg-(--white) text-(--text)">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

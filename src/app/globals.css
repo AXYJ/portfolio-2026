@@ -43,6 +43,8 @@
 :root {
   --white: #fff8f8;
   --accent: #ff2f00;
+  /* Accent foncé pour le texte courant : 4,47:1 sur --white */
+  --text: #e02900;
 }
 
 @theme {
@@ -71,6 +73,12 @@ section {
 
 p {
   @apply text-base lg:text-xl;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--accent);
 }
 
 h2 {

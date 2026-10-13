@@ -222,7 +222,7 @@ export default function Home(): JSX.Element {
             </p>
           </FadeIn>
           <FadeIn className="col-span-2">
-            <EmailLink className="text-lg font-semibold lg:text-3xl" />
+            <EmailLink className="text-lg font-semibold lg:text-3xl text-(--accent)" />
           </FadeIn>
         </FadeInStagger>
       </section>
