@@ -161,7 +161,7 @@ export default function Home(): JSX.Element {
                   <span className="h-fit w-fit text-xl font-semibold lg:text-2xl">
                     {project.title}
                   </span>
-                  <ul className="flex flex-wrap gap-x-3 text-md font-light opacity-70">
+                  <ul className="flex flex-wrap gap-x-3 text-base font-light opacity-70">
                     {project.tags.map((tag) => (
                       <li key={tag}>{tag}</li>
                     ))}
