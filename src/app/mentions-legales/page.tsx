@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { JSX } from "react/jsx-runtime";
 import EmailLink from "@/components/EmailLink";
 import Footer from "@/components/Footer";
@@ -28,24 +28,22 @@ export default function MentionsLegales(): JSX.Element {
         </header>
 
         {/* Titre principal */}
-        <section className="pt-8 pb-4">
+        <section>
           <div className="col-span-full flex flex-col gap-2">
             <h1 className="text-3xl leading-tight font-black uppercase lg:text-5xl">
               Mentions Légales &amp; Confidentialité
             </h1>
-            <p className="text-base font-light opacity-80 lg:text-lg">
+            <p className="font-light opacity-80">
               Dernière mise à jour : octobre 2026
             </p>
           </div>
         </section>
 
         {/* Contenu structuré */}
-        <section className="grid w-full grid-cols-1 gap-12 pt-4 pb-16 lg:grid-cols-4 lg:gap-16">
+        <section className="grid-cols-1">
           {/* 1. Éditeur du site */}
           <div className="col-span-2 grid gap-4 lg:col-span-2 lg:gap-8">
-            <h2 className="text-2xl font-bold uppercase lg:col-span-1 lg:text-3xl">
-              01. Éditeur
-            </h2>
+            <h2>01. Éditeur</h2>
             <div className="flex flex-col gap-2 lg:col-span-3">
               <h3>Alex Xiao</h3>
               <p className="font-light">Web Design &amp; Développeur Web</p>
@@ -59,9 +57,7 @@ export default function MentionsLegales(): JSX.Element {
 
           {/* 2. Hébergement */}
           <div className="col-span-2 grid grid-cols-1 gap-4 lg:col-span-2 lg:gap-8">
-            <h2 className="text-2xl font-bold uppercase lg:col-span-1 lg:text-3xl">
-              02. Hébergeur
-            </h2>
+            <h2>02. Hébergeur</h2>
             <div className="flex flex-col gap-2 lg:col-span-3">
               <h3>Hostinger International Ltd.</h3>
               <p className="font-light">
@@ -76,6 +72,8 @@ export default function MentionsLegales(): JSX.Element {
                   className="font-medium underline underline-offset-4 transition-opacity hover:opacity-80"
                 >
                   https://www.hostinger.com
+                  <span className="sr-only"> (nouvel onglet)</span>
+                  <ArrowUpRight aria-hidden="true" className="inline size-4" />
                 </a>
               </p>
             </div>
@@ -83,10 +81,8 @@ export default function MentionsLegales(): JSX.Element {
 
           {/* 3. Propriété intellectuelle */}
           <div className="col-span-2 grid grid-cols-1 gap-4 lg:col-span-4 lg:gap-8">
-            <h2 className="text-2xl font-bold uppercase lg:col-span-1 lg:text-3xl">
-              03. Propriété
-            </h2>
-            <div className="flex flex-col gap-4 text-base lg:col-span-3 lg:text-lg">
+            <h2>03. Propriété</h2>
+            <div className="flex flex-col gap-4 lg:col-span-3">
               <p>
                 L&apos;ensemble des éléments composant ce site internet (textes,
                 identités visuelles, maquettes graphiques, images, code source
@@ -113,10 +109,8 @@ export default function MentionsLegales(): JSX.Element {
 
           {/* 4. Données personnelles et cookies */}
           <div className="col-span-2 grid grid-cols-1 gap-4 lg:col-span-4 lg:gap-8">
-            <h2 className="text-2xl font-bold uppercase lg:col-span-1 lg:text-3xl">
-              04. Données &amp; Cookies
-            </h2>
-            <div className="flex flex-col gap-4 text-base lg:col-span-3 lg:text-lg">
+            <h2>04. Données &amp; Cookies</h2>
+            <div className="flex flex-col gap-4 lg:col-span-3">
               <div>
                 <h3>Absence totale de traceurs et cookies tiers</h3>
                 <p className="font-light">
@@ -163,10 +157,8 @@ export default function MentionsLegales(): JSX.Element {
 
           {/* 5. Droit applicable */}
           <div className="col-span-2 grid grid-cols-1 gap-4 lg:col-span-4 lg:gap-8">
-            <h2 className="text-2xl font-bold uppercase lg:col-span-1 lg:text-3xl">
-              05. Droit applicable
-            </h2>
-            <div className="flex flex-col gap-4 text-base lg:col-span-3 lg:text-lg">
+            <h2>05. Droit applicable</h2>
+            <div className="flex flex-col gap-4 lg:col-span-3">
               <p>
                 Les présentes mentions légales sont soumises au droit belge. En
                 cas de litige, et à défaut de résolution amiable, les tribunaux

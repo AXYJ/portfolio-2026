@@ -44,7 +44,7 @@
   --white: #fff8f8;
   --accent: #ff2f00;
   /* Accent foncé pour le texte courant : 4,47:1 sur --white */
-  --text: #e02900;
+  --text: #d62700;
 }
 
 @theme {
@@ -67,26 +67,28 @@
   @apply translate-y-0 opacity-100;
 }
 
-section {
-  @apply mx-auto grid w-full max-w-7xl grid-cols-2 gap-x-4 gap-y-8 p-8 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16 lg:p-16;
-}
+@layer base {
+  section {
+    @apply mx-auto grid w-full max-w-7xl gap-x-4 gap-y-8 p-8 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16 lg:p-16;
+  }
 
-p {
-  @apply text-base lg:text-xl;
-}
+  p {
+    @apply text-base;
+  }
 
-h1,
-h2,
-h3 {
-  color: var(--accent);
-}
+  h1,
+  h2,
+  h3 {
+    color: var(--accent);
+  }
 
-h2 {
-  @apply col-span-full text-3xl font-black uppercase lg:text-5xl;
-}
+  h2 {
+    @apply col-span-full text-3xl font-black uppercase lg:text-5xl;
+  }
 
-h3 {
-  @apply text-xl font-bold uppercase lg:text-3xl;
+  h3 {
+    @apply text-xl font-bold uppercase lg:text-3xl;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

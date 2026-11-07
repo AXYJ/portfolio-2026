@@ -7,9 +7,9 @@ import Reveal from "@/components/Reveal";
 import EmailLink from "@/components/EmailLink";
 import Footer from "@/components/Footer";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
-import { ArrowRight } from "lucide-react";
-import type { ReactNode } from "react";
+import { ArrowUpRight } from "lucide-react";
 import type { JSX } from "react/jsx-runtime";
+import ArrowLink from "@/components/ArrowLink";
 
 import type { project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
@@ -19,27 +19,6 @@ const menu = [
   { label: "À propos", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
-
-// Lien avec flèche qui apparaît au survol
-function ArrowLink({
-  href,
-  className = "",
-  children,
-}: {
-  href: string;
-  className?: string;
-  children: ReactNode;
-}): JSX.Element {
-  return (
-    <a
-      href={href}
-      className={`group flex w-fit items-center gap-2 transition-all duration-300 hover:-translate-x-1 ${className}`}
-    >
-      {children}
-      <ArrowRight className="size-5 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-    </a>
-  );
-}
 
 export default function Home(): JSX.Element {
   const lastProjects: project[] = projects
@@ -83,13 +62,13 @@ export default function Home(): JSX.Element {
           <FadeInStagger className="col-span-4 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-8 gap-y-2 lg:grid-cols-4">
             <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
               <span className="font-light">Situé à</span>
-              <p>Bruxelles</p>
+              <p className="lg:text-xl">Bruxelles</p>
             </FadeIn>
             <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
               <span className="font-light">Langues</span>
               <div className="flex flex-col">
-                <p>Français (FR)</p>
-                <p>Anglais (EN)</p>
+                <p className="lg:text-xl">Français (FR)</p>
+                <p className="lg:text-xl">Anglais (EN)</p>
               </div>
             </FadeIn>
             <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
@@ -148,15 +127,10 @@ export default function Home(): JSX.Element {
                   </div>
                   <span className="absolute inset-0 z-10 flex items-center justify-center gap-2 text-xl text-(--white) opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100 group-hover:blur-none lg:text-2xl">
                     Voir le site
-                    <ArrowRight className="size-7" />
+                    <ArrowUpRight className="size-7" />
                   </span>
                 </Link>
-                <Link
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="col-span-2 flex cursor-pointer flex-col gap-0 self-end transition-opacity hover:opacity-85 lg:col-span-1"
-                >
+                <div className="col-span-2 flex flex-col gap-0 self-end lg:col-span-1">
                   <span>{project.year}</span>
                   <span className="h-fit w-fit text-xl font-semibold lg:text-2xl">
                     {project.title}
@@ -166,10 +140,14 @@ export default function Home(): JSX.Element {
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
-                  <span className="pr-8 text-lg font-light">
-                    {project.description}
-                  </span>
-                </Link>
+                  <span className="pr-8 text-lg">{project.description}</span>
+                  <ArrowLink
+                    href={`/projects/${project.slug}`}
+                    className="hover:opacity-85"
+                  >
+                    En savoir plus
+                  </ArrowLink>
+                </div>
               </FadeIn>
             ))}
           </FadeInStagger>
@@ -217,16 +195,16 @@ export default function Home(): JSX.Element {
         </section>
 
         <section id="contact">
-          <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
+          <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-2 lg:gap-y-4">
             <h2>Me contacter</h2>
-            <FadeIn className="col-span-3">
+            <FadeIn className="col-span-3 font-medium">
               <p>
                 Un projet en tête, une opportunité au sein de votre équipe ou
                 simplement envie d&apos;échanger ? Écrivez-moi !
               </p>
             </FadeIn>
             <FadeIn className="col-span-2">
-              <EmailLink className="text-lg font-semibold text-(--accent) lg:text-3xl" />
+              <EmailLink className="text-lg font-semibold lg:text-3xl" />
             </FadeIn>
           </FadeInStagger>
         </section>
