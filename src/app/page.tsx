@@ -154,10 +154,10 @@ export default function Home(): JSX.Element {
         </section>
 
         <section id="about">
-          <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
+          <FadeInStagger className="lg:col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
             <h2>À propos</h2>
-            <div className="col-span-2 flex flex-col gap-4 lg:gap-8">
-              <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
+            <div className="lg:col-span-2 flex flex-col gap-4 lg:gap-8">
+              <div className="lg:col-span-2 flex flex-col gap-2 lg:gap-4">
                 <h3>Formations</h3>
                 <div className="flex flex-col lg:gap-4">
                   <FadeIn>
@@ -170,7 +170,7 @@ export default function Home(): JSX.Element {
                   </FadeIn>
                 </div>
               </div>
-              <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
+              <div className="lg:col-span-2 flex flex-col gap-2 lg:gap-4">
                 <h3>Expérience</h3>
                 <div className="flex flex-col lg:gap-4">
                   <FadeIn>
@@ -205,18 +205,18 @@ export default function Home(): JSX.Element {
         </section>
 
         <section id="contact">
-          <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-2 lg:gap-y-4">
+          <FadeInStagger className="lg:col-span-4 grid h-full grid-cols-subgrid gap-y-2 lg:gap-y-4">
             <h2>Me contacter</h2>
-            <FadeIn className="col-span-3 font-medium">
+            <FadeIn className="lg:col-span-4 font-medium">
               <p>
                 Un projet en tête, une opportunité au sein de votre équipe ou
                 simplement envie d&apos;échanger ? Écrivez-moi !
               </p>
             </FadeIn>
-            <FadeIn className="col-span-2">
+            <FadeIn className="lg:col-span-4">
               <EmailLink className="text-lg font-semibold lg:text-3xl" />
             </FadeIn>
-            <FadeIn className="col-span-2">
+            <FadeIn className="lg:col-span-4">
               <ArrowLink
                 href="/cv-alex-xiao.pdf"
                 download
