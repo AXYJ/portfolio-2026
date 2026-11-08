@@ -1,9 +1,5 @@
 import type { ProjectDetail } from "@/lib/project-detail";
 
-// Contenu tiré de l'entretien du 2026-11-07 (etude-de-cas/rituels.md)
-// et de ce qui a été vérifié dans le code, l'historique git et la maquette Figma.
-// À placer dans src/lib/project-details/rituels.ts, puis ajouter `rituels`
-// à `projectDetails` dans src/lib/project-detail.ts.
 
 export const rituels: ProjectDetail = {
   slug: "rituels",
@@ -105,18 +101,6 @@ export const rituels: ProjectDetail = {
         alt: "Site actuel : un adversaire de chaque côté avec le dos de ses cartes et son score en graines, bloc-notes avec icônes et couleurs",
       },
       why: "Les adversaires n'étaient que des rectangles gris : j'ai ajouté le dos de leurs cartes et leur score pour aider à visualiser la partie. Dans le bloc-notes, une icône et le nom de la couleur rendent chaque ligne plus facile à lire.",
-    },
-    {
-      title: "Accueil",
-      before: {
-        src: "/projects/rituels/maquette-accueil.png",
-        alt: "Maquette de l'accueil : logo « Rituel », bouton de création, champ du code et texte « Séquence de test n° 458 »",
-      },
-      after: {
-        src: "/projects/rituels/actuel-accueil.png",
-        alt: "Site actuel : menu, logo « Rituels », boutons « Créer une nouvelle partie » et « Rejoindre », traces de pattes de pigeon",
-      },
-      why: "J'ai réécrit le texte d'introduction pour mieux poser le contexte du laboratoire. Le bouton « Entrez le code » est devenu « Rejoindre », plus court.",
     },
     {
       title: "Fin de partie",

@@ -80,7 +80,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
 
       {/* Voir autres projets */}
       <nav
-        aria-label="Navigation entre projets"
+        aria-label="Retour à l'accueil"
         className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 pt-8 text-lg font-medium lg:px-16 lg:text-xl"
       >
         <Link
@@ -101,7 +101,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
       </section>
 
       {/* Introduction */}
-      <section data-fade-group className="gap-x-4 lg:grid-cols-12">
+      <section data-fade-group className="gap-x-4 lg:grid-cols-12 justify-start">
         <Image
           data-fade
           src={project.cover.src}
@@ -109,7 +109,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
           width={1000}
           height={1000}
           sizes="(min-width: 1024px) 25vw, 100vw"
-          className="h-full w-full object-contain lg:col-span-3 lg:col-start-2"
+          className="h-full w-full object-contain object-top lg:col-span-3 lg:col-start-2"
         ></Image>
         <div className="flex flex-col gap-4 lg:col-span-7 lg:col-start-6">
           <div data-fade>
@@ -132,7 +132,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
           </div>
           <ul
             data-fade
-            className="flex flex-col lg:flex-row lg:justify-between"
+            className="flex flex-col text-(--accent) lg:flex-row lg:justify-between"
           >
             {project.links.map((extLink) => (
               <li key={extLink.href}>
@@ -158,7 +158,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
             {project.principles.map((princ) => {
               return (
                 <div data-fade key={princ.title}>
-                  <h3 className="text-xl font-semibold text-(--text) normal-case lg:text-xl">
+                  <h3 className="text-xl font-semibold text-(--accent) normal-case lg:text-xl">
                     {princ.title}
                   </h3>
                   <p>{princ.text}</p>
@@ -209,9 +209,9 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
             data-fade
             src={project.identity.image?.src}
             alt={project.identity.image?.alt}
-            width={1000}
-            height={500}
-            sizes="(min-width: 1024px) 25vw, 100vw"
+            width={1200}
+            height={630}
+            sizes="(min-width: 1024px) 58vw, 100vw"
             className="h-full w-full object-cover lg:col-span-7 lg:col-start-6"
           ></Image>
           <p data-fade className="lg:col-span-6">
@@ -234,6 +234,11 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
           <h2 data-fade>Évolution visuelle</h2>
           <div className="grid gap-16 lg:col-span-4 lg:grid-cols-2">
             {project.evolution.map((evo) => {
+              // Rituels screenshots are landscape: stack them instead of side by side
+              const stacked = project.slug === "rituels";
+              const evoSizes = stacked
+                ? "(min-width: 1024px) 50vw, 100vw"
+                : "(min-width: 1024px) 25vw, 100vw";
               return (
                 <div
                   data-fade
@@ -241,13 +246,15 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
                   className="flex flex-col gap-2 lg:gap-4"
                 >
                   <h3>{evo.title}</h3>
-                  <div className="flex flex-col gap-2 lg:flex-row lg:gap-0">
+                  <div
+                    className={`grid gap-2 ${stacked ? "" : "lg:grid-cols-2"}`}
+                  >
                     <Image
                       src={evo.before.src}
                       alt={evo.before.alt}
                       width={1000}
                       height={1000}
-                      sizes="(min-width: 1024px) 25vw, 100vw"
+                      sizes={evoSizes}
                       className="h-full w-full object-cover"
                     ></Image>
                     <Image
@@ -255,7 +262,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
                       alt={evo.after.alt}
                       width={1000}
                       height={1000}
-                      sizes="(min-width: 1024px) 25vw, 100vw"
+                      sizes={evoSizes}
                       className="h-full w-full object-cover"
                     ></Image>
                   </div>
@@ -362,6 +369,15 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
           </FadeIn>
           <FadeIn className="col-span-2">
             <EmailLink className="text-lg font-semibold lg:text-3xl" />
+          </FadeIn>
+          <FadeIn className="col-span-2">
+            <ArrowLink
+              href="/cv-alex-xiao.pdf"
+              download
+              className="text-lg font-semibold lg:text-3xl"
+            >
+              Télécharger mon CV
+            </ArrowLink>
           </FadeIn>
         </FadeInStagger>
       </section>

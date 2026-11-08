@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 import EmailLink from "@/components/EmailLink";
 import Footer from "@/components/Footer";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { JSX } from "react/jsx-runtime";
 import ArrowLink from "@/components/ArrowLink";
 
@@ -51,12 +51,12 @@ export default function Home(): JSX.Element {
           <AnimatedWave />
         </div>
         <section>
-          <FadeIn className="col-span-3 flex flex-col self-end lg:col-span-2">
+          <FadeIn className="col-span-3 flex flex-col self-end lg:col-span-4">
             <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black">
               ALEX XIAO
             </h1>
             <span className="-mt-2 text-[clamp(1rem,2vw,1.5rem)] lg:-mt-4">
-              Web Design & Développeur Web
+              Développeur front-end junior : interfaces temps réel et accessibles <br />Disponible pour un CDI à Bruxelles
             </span>
           </FadeIn>
           <FadeInStagger className="col-span-4 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-8 gap-y-2 lg:grid-cols-4">
@@ -88,10 +88,10 @@ export default function Home(): JSX.Element {
             <FadeIn className="row-span-2 grid grid-rows-subgrid gap-y-0">
               <span aria-hidden="true">&nbsp;</span>
               <ArrowLink
-                href="#projects"
+                href="#contact"
                 className="h-fit text-start font-medium lg:text-xl"
               >
-                Section suivante
+                Me contacter
               </ArrowLink>
             </FadeIn>
           </FadeInStagger>
@@ -108,8 +108,7 @@ export default function Home(): JSX.Element {
               >
                 <Link
                   className="group relative col-span-2 w-full cursor-pointer overflow-hidden lg:col-span-1"
-                  href={project.url}
-                  target="_blank"
+                  href={`/projects/${project.slug}`}
                   rel="noopener noreferrer"
                   tabIndex={-1}
                   aria-hidden="true"
@@ -126,8 +125,8 @@ export default function Home(): JSX.Element {
                     <Gradient />
                   </div>
                   <span className="absolute inset-0 z-10 flex items-center justify-center gap-2 text-xl text-(--white) opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100 group-hover:blur-none lg:text-2xl">
-                    Voir le site
-                    <ArrowUpRight className="size-7" />
+                    En savoir plus
+                    <ArrowRight className="size-7" />
                   </span>
                 </Link>
                 <div className="col-span-2 flex flex-col gap-0 self-end lg:col-span-1">
@@ -143,7 +142,8 @@ export default function Home(): JSX.Element {
                   <span className="pr-8 text-lg">{project.description}</span>
                   <ArrowLink
                     href={`/projects/${project.slug}`}
-                    className="hover:opacity-85"
+                    className="hover:opacity-85 mt-4"
+                    arrowVisible
                   >
                     En savoir plus
                   </ArrowLink>
@@ -156,22 +156,32 @@ export default function Home(): JSX.Element {
         <section id="about">
           <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-4 lg:gap-y-8">
             <h2>À propos</h2>
-            <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
-              <h3>Formations</h3>
-              <div className="flex flex-col gap-4">
-                <FadeIn>
-                  <p>Techniques graphiques orientation WEB | HEFF</p>
-                  <p className="font-light">2023 - 2026 | Bruxelles</p>
-                </FadeIn>
-                <FadeIn>
-                  <p>Stage | MindFactory</p>
-                  <p className="font-light">2026 | Bruxelles </p>
-                </FadeIn>
-                <FadeIn>
-                  <p>Accessibilité Web | AnySurfer</p>
-                  <p className="font-light">2025 | Bruxelles</p>
-                </FadeIn>
+            <div className="col-span-2 flex flex-col gap-4 lg:gap-8">
+              <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
+                <h3>Formations</h3>
+                <div className="flex flex-col lg:gap-4">
+                  <FadeIn>
+                    <p>Techniques graphiques orientation WEB | HEFF</p>
+                    <p className="font-light">2023 - 2026 | Bruxelles</p>
+                  </FadeIn>
+                  <FadeIn>
+                    <p>Accessibilité Web | AnySurfer</p>
+                    <p className="font-light">2025 | Bruxelles</p>
+                  </FadeIn>
+                </div>
               </div>
+              <div className="col-span-2 flex flex-col gap-2 lg:gap-4">
+                <h3>Expérience</h3>
+                <div className="flex flex-col lg:gap-4">
+                  <FadeIn>
+                    <p>Stage | MindFactory</p>
+                    <p className="font-light">2026 | Bruxelles </p>
+                    <p>Maintenance de sites clients WordPress (Divi, Elementor)</p>
+                    <p>Conception d&apos;un formulaire de déclaration IPP pour un cabinet comptable, avec logique conditionnelle et calculs (Forminator).</p>
+                  </FadeIn>
+                </div>
+              </div>
+
             </div>
 
             <div className="col-span-3 flex flex-col gap-2 text-base font-medium lg:col-span-2 lg:gap-4 lg:text-xl">
@@ -180,7 +190,7 @@ export default function Home(): JSX.Element {
               </span>
               <div>
                 <FadeIn>
-                  Développeur front-end et web designer en Belgique, j’aime
+                  Développeur front-end et web designer en Belgique, j&apos;aime
                   concevoir des interfaces soignées, vivantes et agréables à
                   utiliser.
                 </FadeIn>
@@ -205,6 +215,15 @@ export default function Home(): JSX.Element {
             </FadeIn>
             <FadeIn className="col-span-2">
               <EmailLink className="text-lg font-semibold lg:text-3xl" />
+            </FadeIn>
+            <FadeIn className="col-span-2">
+              <ArrowLink
+                href="/cv-alex-xiao.pdf"
+                download
+                className="text-lg font-semibold lg:text-3xl"
+              >
+                Télécharger mon CV
+              </ArrowLink>
             </FadeIn>
           </FadeInStagger>
         </section>
