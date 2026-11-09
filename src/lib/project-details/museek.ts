@@ -11,7 +11,7 @@ export const museek: ProjectDetail = {
   },
   links: [
     { label: "Voir le site", href: "https://museek.xiao-web.com" },
-    { label: "Lire un article", href: "https://museek.hashnode.dev/building-a-multiplayer-music-quiz-where-everyone-brings-their-own-playlist-next-js-socket-io"},
+    { label: "Article technique (EN)", href: "https://museek.hashnode.dev/building-a-multiplayer-music-quiz-where-everyone-brings-their-own-playlist-next-js-socket-io"},
     { label: "Code source", href: "https://github.com/AXYJ/museek" },
   ],
   facts: {
