@@ -5,6 +5,8 @@ export const museek: ProjectDetail = {
   title: "Museek",
   tagline:
     "Un blindtest multijoueur où chacun apporte sa playlist, pour que tout le monde puisse jouer.",
+  year: 2026,
+  thumbnail: { src: "/img/museek.webp", alt: "Museek" },
   cover: {
     src: "/projects/museek/cover.png",
     alt: "Écran de partie de Museek : pochette floutée, champs Artiste et Morceau, barre de temps",

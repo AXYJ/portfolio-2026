@@ -6,9 +6,11 @@ export const rituels: ProjectDetail = {
   title: "Rituels",
   tagline:
     "Un jeu de cartes en ligne dont les règles changent à chaque partie : à vous de les deviner avant les autres.",
+  year: 2026,
+  thumbnail: { src: "/img/rituels.webp", alt: "Rituels" },
   cover: {
     src: "/projects/rituels/cover.png",
-    alt: "Partie de Rituels à quatre joueurs : cartes posées au centre de la table, scores en graines et bloc-notes des hypothèses",
+    alt: "Logo de Rituels",
   },
   links: [
     { label: "Voir le site", href: "https://rituels.xiao-web.com" },
@@ -68,7 +70,7 @@ export const rituels: ProjectDetail = {
     points: [
       {
         title: "Logo",
-        text: "Une tête de pigeon, pensée comme une mascotte, qui fait le lien avec l'expérience de Skinner. Le nom est au pluriel : chaque carte posée est un rituel, un geste fait dans l'espoir d'un résultat sans lien prouvé.",
+        text: "Une tête de pigeon, pensée comme une mascotte, qui fait le lien avec l'expérience de Skinner. Le nom est au pluriel : chaque carte posée est un rituel, un geste fait dans l'espoir d'un résultat sans lien prouvé. Je l'ai aussi animé pour l'accueil.",
       },
       {
         title: "Couleurs",
@@ -86,6 +88,16 @@ export const rituels: ProjectDetail = {
     image: {
       src: "/projects/rituels/identite.png",
       alt: "Planche d'identité Rituels : logo pigeon, cinq couleurs des cartes, police Sweet and Salty et symboles de Zener",
+    },
+  },
+
+  video: {
+    title: "Les règles en mouvement",
+    text: "Pour rendre mes règles compréhensibles, j'avais besoin de les illustrer. J'ai réalisé une vidéo d'1 min 38 où le pigeon vous explique le protocole comme un personnage de jeu vidéo, avec musique et effets sonores : une semaine de travail sur After Effects, à partir d'éléments dessinés sur Figma et Illustrator. Le plus dur a été de synchroniser le son, le texte et les animations.",
+    youtubeId: "Cb2AY2S5HGs",
+    poster: {
+      src: "/projects/rituels/video-regles.png",
+      alt: "Aperçu de la vidéo des règles : logo Rituels, tête de pigeon et nom en lettres manuscrites",
     },
   },
 

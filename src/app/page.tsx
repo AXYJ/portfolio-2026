@@ -11,8 +11,7 @@ import { ArrowRight } from "lucide-react";
 import type { JSX } from "react/jsx-runtime";
 import ArrowLink from "@/components/ArrowLink";
 
-import type { project } from "@/lib/projects";
-import { projects } from "@/lib/projects";
+import { projectDetails } from "@/lib/project-detail";
 
 const menu = [
   { label: "Projets", href: "#projects" },
@@ -21,13 +20,6 @@ const menu = [
 ];
 
 export default function Home(): JSX.Element {
-  const lastProjects: project[] = projects
-    .filter((project: project) => project.highlighted)
-    .sort(
-      (a: project, b: project) =>
-        new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
-
   return (
     <>
       <main className="mx-auto flex w-full flex-1 flex-col items-center bg-(--white) sm:items-start">
@@ -100,8 +92,8 @@ export default function Home(): JSX.Element {
         <section id="projects">
           <h2>Projets</h2>
           <FadeInStagger className="col-span-4 grid grid-cols-2 gap-x-4 gap-y-16 lg:grid-cols-4">
-            {/* Projets mis en avant, du plus récent au plus ancien */}
-            {lastProjects.map((project: project) => (
+            {/* Ordre défini dans projectDetails */}
+            {projectDetails.map((project) => (
               <FadeIn
                 key={project.slug}
                 className="col-span-2 grid grid-cols-subgrid gap-y-4"
@@ -114,8 +106,8 @@ export default function Home(): JSX.Element {
                   aria-hidden="true"
                 >
                   <Image
-                    src={project.image}
-                    alt={project.title}
+                    src={project.thumbnail.src}
+                    alt={project.thumbnail.alt}
                     width={1000}
                     height={1000}
                     sizes="(min-width: 1024px) 25vw, 100vw"
@@ -135,11 +127,11 @@ export default function Home(): JSX.Element {
                     {project.title}
                   </span>
                   <ul className="flex flex-wrap gap-x-3 text-base font-light opacity-70">
-                    {project.tags.map((tag) => (
+                    {project.stack.map((tag) => (
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
-                  <span className="pr-8 text-lg">{project.description}</span>
+                  <span className="pr-8 text-lg">{project.tagline}</span>
                   <ArrowLink
                     href={`/projects/${project.slug}`}
                     className="hover:opacity-85 mt-4"

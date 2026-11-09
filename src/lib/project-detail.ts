@@ -34,6 +34,14 @@ export type Challenge = {
   solution: string;
 };
 
+/** Une vidéo YouTube, chargée seulement au clic sur l'image d'aperçu */
+export type Video = {
+  title: string;
+  text: string; // 1 à 3 phrases
+  youtubeId: string; // ex. "Cb2AY2S5HGs"
+  poster: Image; // image affichée avant la lecture
+};
+
 export type Metric = {
   label: string;
   value: string;
@@ -44,6 +52,8 @@ export type ProjectDetail = {
   slug: string;
   title: string;
   tagline: string;
+  year: number;
+  thumbnail: Image; // vignette carrée de la page d'accueil
   cover: Image;
   links: Link[];
   facts: {
@@ -66,6 +76,7 @@ export type ProjectDetail = {
     points: { title: string; text: string }[];
     image: Image;
   };
+  video?: Video;
   evolution?: BeforeAfter[];
   challenges?: Challenge[];
   workflow?: string; // méthode de travail, usage de l'IA

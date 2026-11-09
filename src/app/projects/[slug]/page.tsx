@@ -14,6 +14,7 @@ import { FadeInStagger } from "@/components/FadeIn";
 import FadeIn from "@/components/FadeIn";
 import EmailLink from "@/components/EmailLink";
 import ArrowLink from "@/components/ArrowLink";
+import YouTubeVideo from "@/components/YouTubeVideo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -185,7 +186,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
       {project.features && (
         <section data-fade-group className="gap-4">
           <h2 data-fade className="lg:col-start-2">
-            Features
+            Fonctionnalités
           </h2>
           <ul className="flex flex-col gap-2 lg:col-span-3 lg:col-start-2">
             {project.features.map((feat, i) => {
@@ -219,14 +220,27 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
           </p>
           {project.identity.points.map((point) => {
             return (
-              <p data-fade key={point.title} className="lg:col-span-6">
-                {point.text}
-              </p>
+              <div data-fade key={point.title} className="lg:col-span-6">
+                <h3>{point.title}</h3>
+                <p>{point.text}</p>
+              </div>
             );
           })}
-          {/* Rajouter plus de texte */}
         </section>
       )}
+
+      {/* Vidéo */}
+      {project.video &&
+        <section data-fade-group>
+          <h2 data-fade>{project.video.title}</h2>
+          <div data-fade className="lg:col-span-2">
+            <YouTubeVideo video={project.video} />
+          </div>
+          <p data-fade className="lg:col-span-2">
+            {project.video.text}
+          </p>
+        </section>
+      }
 
       {/* Évolution visuelle */}
       {project.evolution && (
@@ -277,7 +291,7 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
       {/* Challenge */}
       {project.challenges && (
         <section data-fade-group>
-          <h2 data-fade>Challenges</h2>
+          <h2 data-fade>Défis</h2>
 
           {project.challenges.map((chall) => {
             return (
@@ -331,8 +345,8 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
 
       {/* Workflow */}
       {project.workflow && (
-        <section>
-          <h2 className="sr-only">Workflow</h2>
+        <section className="gap-4">
+          <h2 data-fade className="lg:col-span-3 lg:col-start-2">Workflow</h2>
           <p data-fade className="lg:col-span-3 lg:col-start-2">
             {project.workflow}
           </p>
@@ -359,18 +373,18 @@ export default async function Project({ params }: Props): Promise<JSX.Element> {
 
       {/* Contact */}
       <section id="contact">
-        <FadeInStagger className="col-span-4 grid h-full grid-cols-subgrid gap-y-2 lg:gap-y-4">
+        <FadeInStagger className="lg:col-span-4 grid h-full grid-cols-subgrid gap-y-2 lg:gap-y-4">
           <h2>Me contacter</h2>
-          <FadeIn className="col-span-4">
+          <FadeIn className="lg:col-span-4 font-medium">
             <p>
               Un projet en tête, une opportunité au sein de votre équipe ou
               simplement envie d&apos;échanger ? Écrivez-moi !
             </p>
           </FadeIn>
-          <FadeIn className="col-span-2">
+          <FadeIn className="lg:col-span-4">
             <EmailLink className="text-lg font-semibold lg:text-3xl" />
           </FadeIn>
-          <FadeIn className="col-span-2">
+          <FadeIn className="lg:col-span-4">
             <ArrowLink
               href="/cv-alex-xiao.pdf"
               download
